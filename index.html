@@ -430,12 +430,14 @@
 
     /* ── INSTRUCTORS ───────────────── */
     .inst-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px,1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 28px;
       margin-top: 52px;
     }
     .inst-card {
+      flex: 1 1 460px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
@@ -510,7 +512,7 @@
       font-family:var(--ff-display); font-size:76px; font-weight:800;
       color:var(--text); letter-spacing:-.05em; line-height:1;
     }
-    .price-val sup { font-size:28px; vertical-align:super; margin-right:3px; }
+    .price-val sup { font-size:18px; vertical-align:middle; margin-right:4px; font-weight:600; letter-spacing:0; opacity:.85; }
     .price-inst { font-family:var(--ff-mono); font-size:13.5px; color:var(--muted); margin-top:8px; }
     .price-feats { padding:28px 36px; display:flex; flex-direction:column; gap:12px; }
     .price-feat { display:flex; align-items:center; gap:11px; font-size:15.5px; color:var(--muted); }
@@ -626,7 +628,7 @@
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="nav-logo">Do Zero ao Expert em <b>Claude Code</b></a>
-      <a href="#pricing" class="nav-btn">Quero Entrar →</a>
+      <a href="https://pay.kiwify.com.br/ABt1ioA" class="nav-btn" target="_blank" rel="noopener noreferrer">Quero Entrar →</a>
     </div>
   </div>
 </nav>
@@ -642,7 +644,7 @@
         <h1>Pare de travar.<br>Comece a construir com <em>Claude Code</em>.</h1>
         <p class="hero-sub">O único curso brasileiro que te ensina a usar o Claude Code do zero — mesmo sem saber programar, sem enrolação, sem pagar caro.</p>
         <div class="hero-actions">
-          <a href="#pricing" class="btn-primary">QUERO ENTRAR POR R$197 →</a>
+          <a href="https://pay.kiwify.com.br/ABt1ioA" class="btn-primary" target="_blank" rel="noopener noreferrer">QUERO ENTRAR AGORA →</a>
         </div>
         <div class="hero-trust">
           <span class="trust-pill"><span class="ok">✓</span> 7 dias de garantia</span>
@@ -926,8 +928,8 @@
       <div class="price-card rev">
         <div class="price-top">
           <p class="price-plan">Acesso Completo</p>
-          <p class="price-val"><sup>R$</sup>197</p>
-          <p class="price-inst">ou 12x de R$19,70</p>
+          <p class="price-val"><sup>12x de R$</sup>20,37</p>
+          <p class="price-inst">ou R$197 à vista</p>
         </div>
         <div class="price-feats">
           <div class="price-feat"><span class="ok">✓</span> Módulos 1, 2, 3 e 4 completos</div>
@@ -940,7 +942,7 @@
           <div class="price-feat"><span class="ok">✓</span> Bônus: prompt de acabamento para LPs</div>
         </div>
         <div class="price-cta">
-          <a href="#" class="btn-full">GARANTIR MINHA VAGA AGORA →</a>
+          <a href="https://pay.kiwify.com.br/ABt1ioA" class="btn-full" target="_blank" rel="noopener noreferrer">GARANTIR MINHA VAGA AGORA →</a>
         </div>
         <div class="price-secure">🔒 Pagamento 100% seguro via Kiwify</div>
       </div>
@@ -993,7 +995,7 @@
     <h2 class="s-title rev">Comece hoje a construir<br>com <em style="color:var(--accent)">Claude Code</em>.</h2>
     <p class="s-sub rev d1">Junte-se a quem já parou de travar e começou a construir de verdade com inteligência artificial.</p>
     <div class="rev d2">
-      <a href="#pricing" class="btn-primary" style="font-size:17px;padding:16px 38px">GARANTIR MINHA VAGA AGORA →</a>
+      <a href="https://pay.kiwify.com.br/ABt1ioA" class="btn-primary" style="font-size:17px;padding:16px 38px" target="_blank" rel="noopener noreferrer">GARANTIR MINHA VAGA AGORA →</a>
     </div>
     <p class="urgency rev d3">⏰ Vagas limitadas para este lançamento</p>
   </div>
