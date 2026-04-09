@@ -444,12 +444,12 @@
       padding: 30px;
     }
     .inst-av {
-      width:68px; height:68px; border-radius:50%;
-      background:linear-gradient(135deg,var(--accent),var(--accent-hot));
-      display:flex; align-items:center; justify-content:center;
-      font-family:var(--ff-display); font-weight:800; font-size:26px;
-      color:#0B0B09; margin-bottom:18px; flex-shrink:0;
+      width:80px; height:80px; border-radius:50%;
+      object-fit:cover; object-position:center top;
+      margin-bottom:18px; flex-shrink:0;
+      border:2px solid var(--accent);
     }
+    .inst-av-luiz { object-position:center 35%; }
     .inst-name { font-size:21px; font-weight:700; margin-bottom:3px; }
     .inst-role { font-family:var(--ff-mono); font-size:12px; color:var(--accent); margin-bottom:14px; }
     .inst-bio { font-size:15.5px; color:var(--muted); line-height:1.7; }
@@ -825,13 +825,13 @@
     <h2 class="s-title rev">Quem vai te ensinar</h2>
     <div class="inst-grid">
       <div class="inst-card rev d1">
-        <div class="inst-av">LB</div>
+        <img class="inst-av inst-av-luiz" src="assets/luiz.jpeg" alt="Luiz Bessa">
         <h3 class="inst-name">Luiz Bessa</h3>
         <p class="inst-role">Co-fundador da Nexor</p>
         <p class="inst-bio">Empreendedor e autodidata que usa Claude Code todos os dias em projetos reais. Co-fundador da Nexor, empresa de automações e IA em Brasília. Já entregou projetos que vão de agentes de WhatsApp a plataformas editoriais com IA. Estudante de Ciência da Computação na UnB — aprende na teoria e aplica na prática no mesmo dia.</p>
       </div>
       <div class="inst-card rev d2">
-        <div class="inst-av">GS</div>
+        <img class="inst-av" src="assets/gabriel.jpg" alt="Gabriel Sampaio">
         <h3 class="inst-name">Gabriel Sampaio</h3>
         <p class="inst-role">Co-fundador da Nexor</p>
         <p class="inst-bio">Especialista em automações com IA e n8n. Co-fundador da Nexor com experiência em implementações reais para clientes de diferentes segmentos. Referência na comunidade brasileira de automações com IA.</p>
