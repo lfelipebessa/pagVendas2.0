@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="O único curso brasileiro de Claude Code do zero. Aprenda a construir com IA na prática, sem saber programar. Por R$197.">
+  <meta name="description" content="O único curso brasileiro de Claude Code do zero. Aprenda a construir com IA na prática, sem saber programar. Por R$267.">
   <title>Do Zero ao Expert em Claude Code — Nexor</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Fontes não-bloqueantes: página renderiza imediatamente com fallback de sistema -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400&display=swap"></noscript>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,16 +48,7 @@
       overflow-x: hidden;
     }
 
-    /* grain overlay */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.028;
-      pointer-events: none;
-      z-index: 9000;
-    }
+    /* grain overlay removido — feTurbulence SVG filter era o maior culpado de lentidão (compositing em todo frame) */
 
     .container {
       max-width: var(--max-w);
@@ -75,10 +68,13 @@
       inset: 0 0 auto;
       z-index: 500;
       padding: 15px 0;
-      background: rgba(11,11,9,.82);
+      background: rgba(11,11,9,.92);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
       transition: border-color .3s;
+    }
+    @media(max-width:760px){
+      .nav { backdrop-filter: none; background: rgba(11,11,9,.97); }
     }
     .nav-inner {
       display: flex;
@@ -256,8 +252,9 @@
     .term-dot:nth-child(3){ background:#28C840; }
     .term-label { font-family:var(--ff-mono); font-size:11px; color:var(--muted); margin-left:6px; }
     .term-body { padding:18px 20px; font-family:var(--ff-mono); font-size:12.5px; line-height:1.75; min-height:248px; }
-    .tl { display:block; opacity:0; transition:opacity .1s; }
-    .tl.show { opacity:1; }
+    .tl { display:block; opacity:0; }
+    .tl.show { animation: termline .12s ease forwards; }
+    @keyframes termline { to { opacity:1; } }
     .tl.cmd  { color:var(--accent); }
     .tl.ok   { color:var(--green); }
     .tl.info { color:var(--muted); }
@@ -275,6 +272,7 @@
       display: flex;
       animation: ticker 28s linear infinite;
       white-space: nowrap;
+      will-change: transform;
     }
     .ticker-item {
       display: inline-flex;
@@ -288,7 +286,7 @@
     .ticker-item .sep { width:3px; height:3px; border-radius:50%; background:var(--accent); flex-shrink:0; }
 
     /* ── SHARED SECTION ────────────── */
-    section { padding: 88px 0; }
+    section { padding: 88px 0; contain: layout style; }
     .s-tag {
       display: flex;
       align-items: center;
@@ -559,6 +557,184 @@
     .faq-item.open .faq-a { max-height:180px; }
     .faq-a-in { padding:0 22px 20px; font-size:15.5px; color:var(--muted); line-height:1.75; }
 
+    /* ── URGÊNCIA ──────────────────── */
+    .urgencia { background: var(--bg); }
+    .urgencia-intro {
+      font-size: 18px; color: var(--muted); max-width: 700px;
+      line-height: 1.85; margin: 32px 0 52px;
+    }
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+      gap: 20px;
+    }
+    .data-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 28px 24px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: border-color .2s;
+    }
+    .data-card:hover { border-color: rgba(232,160,28,.36); }
+    .data-ico { font-size: 28px; flex-shrink: 0; line-height: 1.2; }
+    .data-card p { font-size: 15.5px; color: var(--muted); line-height: 1.65; margin:0; }
+    .data-card strong { color: var(--text); font-weight: 700; display:block; margin-bottom:4px; font-size:16px; }
+
+    /* ── COMMUNITY ─────────────────── */
+    .community { background: var(--bg); }
+    .community-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 52px;
+    }
+    @media(max-width:760px){ .community-grid{ grid-template-columns:1fr; } }
+    .community-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .2s, transform .22s;
+    }
+    .community-card:hover { border-color: rgba(232,160,28,.4); transform: translateY(-3px); }
+    .community-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background: linear-gradient(90deg,var(--accent),transparent);
+    }
+    .community-card-hd {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;
+    }
+    .community-ico { font-size: 32px; line-height:1; }
+    .community-badge {
+      font-family: var(--ff-mono); font-size: 9px; letter-spacing:.1em;
+      padding: 3px 10px; border-radius: 100px;
+      background: rgba(82,217,138,.1); border: 1px solid rgba(82,217,138,.25); color: var(--green);
+    }
+    .community-card h3 {
+      font-size: 20px; font-weight: 700; margin-bottom: 12px; line-height: 1.3;
+    }
+    .community-card > p {
+      font-size: 15.5px; color: var(--muted); line-height: 1.75; margin-bottom: 22px;
+    }
+    .community-list {
+      list-style: none; display: flex; flex-direction: column; gap: 10px;
+    }
+    .community-list li {
+      font-size: 14.5px; color: var(--muted); display: flex; gap: 10px;
+      align-items: flex-start; line-height: 1.55;
+    }
+    .community-list li::before {
+      content:'→'; color:var(--accent); font-family:var(--ff-mono); font-size:11px; flex-shrink:0; margin-top:2px;
+    }
+    .community-highlight {
+      margin-top: 28px;
+      padding: 20px 26px;
+      background: rgba(232,160,28,.07);
+      border: 1px solid rgba(232,160,28,.22);
+      border-radius: var(--r-lg);
+      display: flex; align-items: center; gap: 18px;
+    }
+    .community-highlight-ico { font-size: 28px; flex-shrink: 0; }
+    .community-highlight p {
+      font-size: 16px; color: var(--text); font-weight: 600; line-height: 1.6; margin: 0;
+    }
+
+    /* ── FOMO ──────────────────────── */
+    .fomo { background: var(--surface); }
+    .fomo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+      gap: 20px;
+      margin-top: 52px;
+    }
+    .fomo-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 28px;
+      transition: border-color .2s, transform .22s;
+    }
+    .fomo-card:hover { border-color: rgba(232,160,28,.36); transform: translateY(-3px); }
+    .fomo-card-ico { font-size: 26px; margin-bottom: 14px; line-height: 1; }
+    .fomo-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .fomo-card p { font-size: 15px; color: var(--muted); line-height: 1.65; margin:0; }
+
+    /* ── PROB SUBTITLE / CLOSING ────── */
+    .prob-sub { font-size:17px; color: var(--accent-hot); font-weight:600; margin-top: 8px; margin-bottom:0; }
+    .prob-closing {
+      margin-top: 28px;
+      padding: 18px 24px;
+      background: rgba(255,77,26,.07);
+      border: 1px solid rgba(255,77,26,.2);
+      border-radius: var(--r);
+      font-size: 15.5px; color: var(--muted); font-style: italic; line-height:1.65;
+    }
+
+    /* ── PRICING CONTEXT ────────────── */
+    .price-context {
+      text-align: center; max-width:520px; margin: 0 auto 28px;
+      font-size: 15.5px; color: var(--muted); line-height: 1.7;
+    }
+    .price-launch {
+      text-align: center; margin: 16px 36px 0;
+      font-family: var(--ff-mono); font-size: 13px; color: var(--accent-hot);
+    }
+    .price-subtitle {
+      text-align: center; font-size: 18px; color: var(--muted); margin-bottom: 8px;
+    }
+
+    /* ── VALUE STACK ───────────────── */
+    .value-stack {
+      max-width: 520px; margin: 0 auto 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .value-stack-label {
+      font-family: var(--ff-mono); font-size: 10px; letter-spacing:.1em;
+      text-transform: uppercase; color: var(--accent);
+      padding: 12px 20px; background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+    }
+    .value-stack-items { padding: 8px 0; }
+    .value-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 20px; gap: 12px;
+      border-bottom: 1px solid rgba(224,160,28,.06);
+    }
+    .value-item:last-child { border-bottom: none; }
+    .value-item-name { font-size: 14px; color: var(--muted); }
+    .value-item-price { font-family: var(--ff-mono); font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .value-item-total { background: rgba(255,255,255,.02); }
+    .value-item-total .value-item-name { font-weight: 600; color: var(--text); font-size: 14.5px; }
+    .value-crossed { text-decoration: line-through; opacity:.5; }
+    .value-item-you-pay {
+      background: rgba(232,160,28,.07);
+      border-top: 1px solid rgba(232,160,28,.18) !important;
+    }
+    .value-item-you-pay .value-item-name { font-weight: 700; color: var(--text); font-size: 15px; }
+    .value-you-pay-price { color: var(--accent) !important; font-size: 18px !important; font-weight: 700; }
+
+    /* ── FEAT BADGE ────────────────── */
+    .feat-badge {
+      display: inline-flex; align-items: center;
+      padding: 1px 7px; margin-left: 6px;
+      background: rgba(232,160,28,.15);
+      border: 1px solid rgba(232,160,28,.3);
+      border-radius: 100px;
+      font-family: var(--ff-mono); font-size: 9px;
+      letter-spacing: .08em; color: var(--accent);
+      vertical-align: middle;
+    }
+    .price-feat-new { color: var(--text) !important; }
+    .price-feat-new .ok { color: var(--accent) !important; }
+
     /* ── FINAL CTA ─────────────────── */
     .final { text-align:center; padding:112px 0; position:relative; overflow:hidden; }
     .final::before {
@@ -622,6 +798,10 @@
       .price-val { font-size:60px; }
       .nav-logo { font-size:12px; }
     }
+    @media(prefers-reduced-motion:reduce){
+      *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+      .ticker-track { animation: none; }
+    }
   </style>
 </head>
 <body>
@@ -631,7 +811,7 @@
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="nav-logo">Do Zero ao Expert em <b>Claude Code</b></a>
-      <a href="https://pay.kiwify.com.br/ABt1ioA" class="nav-btn" target="_blank" rel="noopener noreferrer">Quero Entrar →</a>
+      <a href="#pricing" class="nav-btn">Quero Entrar →</a>
     </div>
   </div>
 </nav>
@@ -643,16 +823,17 @@
   <div class="container">
     <div class="hero-inner">
       <div class="hero-copy">
-        <div class="hero-badge">🔥 Lançamento — Vagas Limitadas</div>
-        <h1>Pare de travar.<br>Comece a construir com <em>Claude Code</em>.</h1>
-        <p class="hero-sub">O único curso brasileiro que te ensina a usar o Claude Code do zero — mesmo sem saber programar, sem enrolação, sem pagar caro.</p>
+        <div class="hero-badge">⚠️ A janela de oportunidade está fechando</div>
+        <h1>Quem não aprender a usar IA agora vai trabalhar para quem aprendeu.</h1>
+        <p class="hero-sub">O Claude Code é a ferramenta que está substituindo desenvolvedores, acelerando negócios e gerando renda para quem age rápido. Você pode aprender hoje — ou assistir os outros ganhando.</p>
         <div class="hero-actions">
-          <a href="https://pay.kiwify.com.br/ABt1ioA" class="btn-primary" target="_blank" rel="noopener noreferrer">QUERO ENTRAR AGORA →</a>
+          <a href="#pricing" class="btn-primary">QUERO ENTRAR ANTES QUE FECHE →</a>
         </div>
         <div class="hero-trust">
           <span class="trust-pill"><span class="ok">✓</span> 7 dias de garantia</span>
           <span class="trust-pill"><span class="ok">✓</span> Acesso vitalício</span>
-          <span class="trust-pill"><span class="ok">✓</span> Suporte no grupo</span>
+          <span class="trust-pill"><span class="ok">✓</span> Comunidade no WhatsApp</span>
+          <span class="trust-pill"><span class="ok">✓</span> Lives semanais</span>
         </div>
       </div>
 
@@ -675,11 +856,35 @@
   <div class="ticker-track" id="tickerTrack"></div>
 </div>
 
+<!-- URGÊNCIA -->
+<section class="urgencia">
+  <div class="container">
+    <div class="s-tag">Realidade</div>
+    <h2 class="s-title rev">Isso não é mais o futuro.<br>Já está acontecendo.</h2>
+    <p class="urgencia-intro rev d1">Enquanto você lê isso, empreendedores estão construindo projetos com Claude Code que antes custavam R$5.000 em desenvolvimento. Freelancers estão cobrando por entregas que levaram 2 horas pra fazer. Negócios inteiros estão sendo automatizados por pessoas que há 3 meses não sabiam programar nada. A IA não vai substituir as pessoas — vai substituir as pessoas que não sabem usar IA. E o Claude Code é a ferramenta mais poderosa que existe pra isso hoje.</p>
+    <div class="data-grid">
+      <div class="data-card rev d1">
+        <div class="data-ico">🚀</div>
+        <p><strong>+40% de produtividade</strong>relatada por quem usa Claude Code diariamente no trabalho</p>
+      </div>
+      <div class="data-card rev d2">
+        <div class="data-ico">💰</div>
+        <p><strong>Projetos que custavam R$5k</strong>sendo entregues por iniciantes em questão de dias</p>
+      </div>
+      <div class="data-card rev d3">
+        <div class="data-ico">⏱️</div>
+        <p><strong>Horas viram minutos</strong>— tarefas repetitivas eliminadas de vez com automação real</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROBLEM -->
 <section class="problem">
   <div class="container">
     <div class="s-tag">O problema</div>
     <h2 class="s-title rev">Você se identifica<br>com isso?</h2>
+    <p class="prob-sub rev d1">Se sim, cada dia que passa você está ficando mais pra trás.</p>
     <div class="prob-grid">
       <div class="prob-card rev d1">
         <div class="prob-x">✕</div>
@@ -706,6 +911,7 @@
         <p>Só acha conteúdo sobre Claude Code em inglês e completamente raso</p>
       </div>
     </div>
+    <p class="prob-closing rev">Cada dia sem aprender isso é um dia a mais que seu concorrente está na sua frente.</p>
   </div>
 </section>
 
@@ -825,13 +1031,13 @@
     <h2 class="s-title rev">Quem vai te ensinar</h2>
     <div class="inst-grid">
       <div class="inst-card rev d1">
-        <img class="inst-av inst-av-luiz" src="assets/luiz.jpeg" alt="Luiz Bessa">
+        <img class="inst-av inst-av-luiz" src="assets/luiz.jpeg" alt="Luiz Bessa" loading="lazy" decoding="async">
         <h3 class="inst-name">Luiz Bessa</h3>
         <p class="inst-role">Co-fundador da Nexor</p>
         <p class="inst-bio">Empreendedor e autodidata que usa Claude Code todos os dias em projetos reais. Co-fundador da Nexor, empresa de automações e IA em Brasília. Já entregou projetos que vão de agentes de WhatsApp a plataformas editoriais com IA. Estudante de Ciência da Computação na UnB — aprende na teoria e aplica na prática no mesmo dia.</p>
       </div>
       <div class="inst-card rev d2">
-        <img class="inst-av" src="assets/gabriel.jpg" alt="Gabriel Sampaio">
+        <img class="inst-av" src="assets/gabriel.jpg" alt="Gabriel Sampaio" loading="lazy" decoding="async">
         <h3 class="inst-name">Gabriel Sampaio</h3>
         <p class="inst-role">Co-fundador da Nexor</p>
         <p class="inst-bio">Especialista em automações com IA e n8n. Co-fundador da Nexor com experiência em implementações reais para clientes de diferentes segmentos. Referência na comunidade brasileira de automações com IA.</p>
@@ -922,24 +1128,127 @@
   </div>
 </section>
 
+<!-- COMUNIDADE + LIVES -->
+<section class="community">
+  <div class="container">
+    <div class="s-tag">Mais do que um curso</div>
+    <h2 class="s-title rev">Você não vai aprender sozinho.<br>Você vai <em style="color:var(--accent)">evoluir junto.</em></h2>
+    <p class="s-sub rev d1" style="max-width:640px">A maioria dos cursos te deixa pra lá depois da compra. Aqui é diferente: você entra pra uma comunidade ativa e ainda tem acesso direto aos instrutores toda semana.</p>
+    <div class="community-grid">
+      <div class="community-card rev d1">
+        <div class="community-card-hd">
+          <span class="community-ico">💬</span>
+          <span class="community-badge">INCLUSO</span>
+        </div>
+        <h3>Comunidade exclusiva no WhatsApp</h3>
+        <p>Acesso direto a outros alunos, troca de projetos, dúvidas respondidas em tempo real e network com pessoas construindo as mesmas coisas que você. Não tem preço esse tipo de ambiente.</p>
+        <ul class="community-list">
+          <li>Tire dúvidas com quem já passou pelo mesmo problema</li>
+          <li>Compartilhe seus projetos e receba feedback real</li>
+          <li>Networking com empreendedores e freelancers usando Claude Code</li>
+        </ul>
+      </div>
+      <div class="community-card rev d2">
+        <div class="community-card-hd">
+          <span class="community-ico">🎙️</span>
+          <span class="community-badge">INCLUSO</span>
+        </div>
+        <h3>Lives semanais ao vivo</h3>
+        <p>Toda semana os instrutores entram ao vivo pra tirar dúvidas, mostrar novidades do Claude Code, revisar projetos dos alunos e compartilhar o que está funcionando nos clientes reais deles.</p>
+        <ul class="community-list">
+          <li>Sessões ao vivo com Luiz e Gabriel toda semana</li>
+          <li>Revisão de projetos e feedback ao vivo</li>
+          <li>Acesso às gravações para quem não conseguir assistir</li>
+        </ul>
+      </div>
+    </div>
+    <div class="community-highlight rev d3">
+      <span class="community-highlight-ico">🔥</span>
+      <p>Enquanto outros cursos cobram centenas de reais por mentoria e comunidade separados, aqui entra tudo no mesmo acesso. Por R$267.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOMO -->
+<section class="fomo">
+  <div class="container">
+    <div class="s-tag">Por que agora</div>
+    <h2 class="s-title rev">Por que aprender isso agora<br>e não depois?</h2>
+    <div class="fomo-grid">
+      <div class="fomo-card rev d1">
+        <div class="fomo-card-ico">⏳</div>
+        <h4>A curva de adoção está no início</h4>
+        <p>Quem aprende uma tecnologia no começo da curva colhe os maiores frutos. ChatGPT todo mundo já usa. Claude Code ainda é território de quem sai na frente.</p>
+      </div>
+      <div class="fomo-card rev d2">
+        <div class="fomo-card-ico">🏆</div>
+        <h4>Primeiros a dominar, primeiros a cobrar mais</h4>
+        <p>Clientes pagam premium pra quem entrega com velocidade e qualidade. Quem usa Claude Code entrega as duas coisas ao mesmo tempo.</p>
+      </div>
+      <div class="fomo-card rev d3">
+        <div class="fomo-card-ico">📉</div>
+        <h4>Esperar tem um custo real</h4>
+        <p>Cada semana sem essa habilidade é uma semana de projetos que você não fez, clientes que você não atendeu, renda que você não gerou.</p>
+      </div>
+      <div class="fomo-card rev d4">
+        <div class="fomo-card-ico">🔥</div>
+        <h4>O mercado não vai te esperar</h4>
+        <p>Não existe "vou aprender quando tiver tempo". O mercado está se movendo agora. Ou você embarca ou assiste de fora.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section id="pricing">
   <div class="container">
     <div class="s-tag" style="justify-content:center">Investimento</div>
     <h2 class="s-title rev" style="text-align:center">Acesso completo ao<br>curso por</h2>
+    <p class="price-subtitle rev d1">Menos do que duas horas de desenvolvimento terceirizado.</p>
+    <p class="price-context rev d2">Um desenvolvedor freelancer cobra em média <strong style="color:var(--text)">R$150/hora</strong>. Por <strong style="color:var(--accent)">R$267</strong> você aprende a fazer o trabalho dele — e ainda entra numa comunidade ativa que te acompanha enquanto você cresce.</p>
+    <div class="value-stack rev d3">
+      <p class="value-stack-label">O que entra no seu acesso</p>
+      <div class="value-stack-items">
+        <div class="value-item">
+          <span class="value-item-name">📚 Curso completo (4 módulos)</span>
+          <span class="value-item-price">R$297</span>
+        </div>
+        <div class="value-item">
+          <span class="value-item-name">💬 Comunidade exclusiva no WhatsApp</span>
+          <span class="value-item-price">R$97</span>
+        </div>
+        <div class="value-item">
+          <span class="value-item-name">🎙️ Lives semanais ao vivo com os instrutores</span>
+          <span class="value-item-price">R$197</span>
+        </div>
+        <div class="value-item">
+          <span class="value-item-name">🎁 3 bônus exclusivos</span>
+          <span class="value-item-price">R$97</span>
+        </div>
+        <div class="value-item value-item-total">
+          <span class="value-item-name">Valor total</span>
+          <span class="value-item-price value-crossed">R$688</span>
+        </div>
+        <div class="value-item value-item-you-pay">
+          <span class="value-item-name">Você paga hoje</span>
+          <span class="value-item-price value-you-pay-price">R$267</span>
+        </div>
+      </div>
+    </div>
     <div class="pricing-wrap">
       <div class="price-card rev">
         <div class="price-top">
-          <p class="price-plan">Acesso Completo</p>
-          <p class="price-val"><sup>12x de R$</sup>20,37</p>
-          <p class="price-inst">ou R$197 à vista</p>
+          <p class="price-plan">Acesso Completo + Comunidade + Lives</p>
+          <p class="price-val"><sup>12x de R$</sup>27,61</p>
+          <p class="price-inst">ou R$267 à vista</p>
         </div>
         <div class="price-feats">
           <div class="price-feat"><span class="ok">✓</span> Módulos 1, 2, 3 e 4 completos</div>
           <div class="price-feat"><span class="ok">✓</span> Projetos práticos do zero ao funcionando</div>
           <div class="price-feat"><span class="ok">✓</span> Acesso vitalício ao conteúdo</div>
           <div class="price-feat"><span class="ok">✓</span> Atualizações incluídas sem custo</div>
-          <div class="price-feat"><span class="ok">✓</span> Grupo de suporte exclusivo</div>
+          <div class="price-feat price-feat-new"><span class="ok">✓</span> <span>Comunidade exclusiva no WhatsApp <span class="feat-badge">NOVO</span></span></div>
+          <div class="price-feat price-feat-new"><span class="ok">✓</span> <span>Lives semanais ao vivo com os instrutores <span class="feat-badge">NOVO</span></span></div>
           <div class="price-feat"><span class="ok">✓</span> Bônus: economizar nas assinaturas de IA</div>
           <div class="price-feat"><span class="ok">✓</span> Bônus: player de vídeo próprio</div>
           <div class="price-feat"><span class="ok">✓</span> Bônus: prompt de acabamento para LPs</div>
@@ -947,6 +1256,7 @@
         <div class="price-cta">
           <a href="https://pay.kiwify.com.br/ABt1ioA" class="btn-full" target="_blank" rel="noopener noreferrer">GARANTIR MINHA VAGA AGORA →</a>
         </div>
+        <p class="price-launch">🔥 Esse preço é de lançamento. Vai subir assim que as primeiras turmas fecharem.</p>
         <div class="price-secure">🔒 Pagamento 100% seguro via Kiwify</div>
       </div>
       <div class="guarantee rev d1">
@@ -987,6 +1297,10 @@
         <div class="faq-q"><span>Vou conseguir aplicar no meu negócio?</span><span class="faq-plus">+</span></div>
         <div class="faq-a"><p class="faq-a-in">Sim. O curso é focado em aplicações práticas que você pode usar imediatamente — seja para economizar tempo, automatizar tarefas ou construir projetos para clientes.</p></div>
       </div>
+      <div class="faq-item rev d3">
+        <div class="faq-q"><span>Não é tarde demais para aprender Claude Code?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p class="faq-a-in">É exatamente o contrário. Estamos no início da adoção em massa no Brasil. Quem aprende agora ainda pega a onda. Daqui a 1 ano todo mundo vai saber o básico — e a vantagem vai ser de quem foi mais fundo. Esse curso é o começo desse caminho.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -994,13 +1308,13 @@
 <!-- FINAL CTA -->
 <section class="final">
   <div class="container">
-    <div class="s-tag" style="justify-content:center">Comece agora</div>
-    <h2 class="s-title rev">Comece hoje a construir<br>com <em style="color:var(--accent)">Claude Code</em>.</h2>
-    <p class="s-sub rev d1">Junte-se a quem já parou de travar e começou a construir de verdade com inteligência artificial.</p>
+    <div class="s-tag" style="justify-content:center">Decida agora</div>
+    <h2 class="s-title rev">A decisão que você toma hoje<br>define onde você vai estar em <em style="color:var(--accent)">6 meses</em>.</h2>
+    <p class="s-sub rev d1">De um lado: você entra, aprende, constrói e começa a colher resultados com IA de verdade. Do outro: você fecha essa página, volta pra rotina e assiste outras pessoas fazendo o que você poderia estar fazendo. A escolha é sua — mas ela tem prazo.</p>
     <div class="rev d2">
-      <a href="https://pay.kiwify.com.br/ABt1ioA" class="btn-primary" style="font-size:17px;padding:16px 38px" target="_blank" rel="noopener noreferrer">GARANTIR MINHA VAGA AGORA →</a>
+      <a href="https://pay.kiwify.com.br/ABt1ioA" class="btn-primary" style="font-size:17px;padding:16px 38px" target="_blank" rel="noopener noreferrer">QUERO ENTRAR AGORA, ANTES QUE FECHE →</a>
     </div>
-    <p class="urgency rev d3">⏰ Vagas limitadas para este lançamento</p>
+    <p class="urgency rev d3">🔴 Vagas limitadas — preço de lançamento por tempo limitado</p>
   </div>
 </section>
 
@@ -1049,12 +1363,10 @@
     LINES.forEach(({ t, c, d }) => {
       const t1 = setTimeout(() => {
         const span = document.createElement('span');
-        span.className = 'tl ' + c;
+        // Usar animação CSS em vez de forçar reflow com offsetWidth
+        span.className = 'tl ' + c + ' show';
         span.textContent = t;
         termBody.insertBefore(span, cursor);
-        // force reflow then add show
-        void span.offsetWidth;
-        span.classList.add('show');
       }, d);
       timers.push(t1);
     });
@@ -1068,17 +1380,20 @@
   /* ── Ticker ─────────────────────────── */
   const WORDS = [
     'Claude Code','Sem programar','Projetos reais','Do zero ao expert',
-    'Webhook na prática','PIX API','Acesso vitalício','Suporte exclusivo',
+    'Comunidade no WhatsApp','Lives semanais','Acesso vitalício','Suporte exclusivo',
     'Git e GitHub','Hospedagem real','Automações com IA','Feito no Brasil',
   ];
   const track = document.getElementById('tickerTrack');
-  const all = [...WORDS, ...WORDS, ...WORDS, ...WORDS];
+  // 2× é suficiente para loop contínuo seamless
+  const all = [...WORDS, ...WORDS];
+  const frag = document.createDocumentFragment();
   all.forEach(w => {
     const el = document.createElement('span');
     el.className = 'ticker-item';
     el.innerHTML = '<span class="sep"></span>' + w;
-    track.appendChild(el);
+    frag.appendChild(el);
   });
+  track.appendChild(frag);
 
   /* ── Scroll reveal ───────────────────── */
   const revEls = document.querySelectorAll('.rev');
@@ -1099,12 +1414,17 @@
     });
   });
 
-  /* ── Navbar on scroll ─────────────────── */
+  /* ── Navbar on scroll (throttled via RAF) ── */
   const navEl = document.getElementById('nav');
+  let rafNav = null;
   window.addEventListener('scroll', () => {
-    navEl.style.borderBottomColor = window.scrollY > 60
-      ? 'rgba(232,160,28,.22)'
-      : 'rgba(224,160,28,.13)';
+    if (rafNav) return;
+    rafNav = requestAnimationFrame(() => {
+      navEl.style.borderBottomColor = window.scrollY > 60
+        ? 'rgba(232,160,28,.22)'
+        : 'rgba(224,160,28,.13)';
+      rafNav = null;
+    });
   }, { passive: true });
 })();
 </script>
