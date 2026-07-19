@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="O único curso brasileiro de Claude Code do zero. Aprenda a construir com IA na prática, sem saber programar. Por R$267.">
-  <title>Do Zero ao Expert em Claude Code — Luiz Bessa</title>
+  <meta name="description" content="Reis do Claude Code: construa o primeiro sistema do seu negócio com IA, sem saber programar. Curso prático, em português, por R$87/ano.">
+  <title>Reis do Claude Code | Construa o primeiro sistema do seu negócio com IA</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,9 +19,11 @@
       --bg:         #0B0B09;
       --surface:    #131310;
       --surface-2:  #1A1A16;
-      --border:     rgba(224,160,28,0.13);
-      --accent:     #E8A01C;
-      --accent-hot: #FF4D1A;
+      --border:     rgba(212,175,55,0.16);
+      --accent:     #D4AF37;
+      --accent-hot: #ED3419;
+      --gold-hi:    #F1D374;
+      --gold-deep:  #A9821E;
       --text:       #EDE8D8;
       --muted:      #7A7770;
       --dim:        #3A3A35;
@@ -95,7 +97,7 @@
       align-items: center;
       gap: 7px;
       padding: 9px 20px;
-      background: var(--accent);
+      background: linear-gradient(160deg, var(--gold-hi) 0%, var(--accent) 55%, var(--gold-deep) 130%);
       color: #0B0B09;
       font-family: var(--ff-display);
       font-weight: 700;
@@ -106,9 +108,9 @@
       transition: background .18s, transform .18s, box-shadow .18s;
     }
     .nav-btn:hover {
-      background: #F5B82E;
+      filter: brightness(1.12);
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(232,160,28,.35);
+      box-shadow: 0 6px 20px rgba(212,175,55,.35);
     }
 
     /* ── HERO ──────────────────────── */
@@ -124,8 +126,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(232,160,28,.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(232,160,28,.045) 1px, transparent 1px);
+        linear-gradient(rgba(212,175,55,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,55,.045) 1px, transparent 1px);
       background-size: 56px 56px;
       mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 80%);
     }
@@ -134,7 +136,7 @@
       top: -160px; left: 50%;
       transform: translateX(-50%);
       width: 900px; height: 700px;
-      background: radial-gradient(ellipse at center, rgba(232,160,28,.11) 0%, transparent 68%);
+      background: radial-gradient(ellipse at center, rgba(212,175,55,.11) 0%, transparent 68%);
       pointer-events: none;
     }
     .hero-inner {
@@ -152,8 +154,8 @@
       align-items: center;
       gap: 8px;
       padding: 5px 14px;
-      background: rgba(232,160,28,.1);
-      border: 1px solid rgba(232,160,28,.28);
+      background: rgba(212,175,55,.1);
+      border: 1px solid rgba(212,175,55,.28);
       border-radius: 100px;
       font-family: var(--ff-mono);
       font-size: 12px;
@@ -169,7 +171,14 @@
       line-height: 1.18;
       animation: up .55s .08s ease both;
     }
-    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+      background: linear-gradient(115deg, var(--gold-hi) 10%, var(--accent) 55%, var(--gold-deep) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
     .hero-sub {
       font-size: clamp(17px,2vw,20px);
       color: var(--muted);
@@ -191,7 +200,7 @@
       align-items: center;
       gap: 10px;
       padding: 15px 30px;
-      background: var(--accent);
+      background: linear-gradient(160deg, var(--gold-hi) 0%, var(--accent) 55%, var(--gold-deep) 130%);
       color: #0B0B09;
       font-family: var(--ff-display);
       font-weight: 800;
@@ -211,7 +220,7 @@
       opacity:0;
       transition:opacity .2s;
     }
-    .btn-primary:hover { background:#F5B82E; transform:translateY(-2px); box-shadow:0 10px 36px rgba(232,160,28,.38); }
+    .btn-primary:hover { filter:brightness(1.12); transform:translateY(-2px); box-shadow:0 10px 36px rgba(212,175,55,.38); }
     .btn-primary:hover::after { opacity:1; }
 
     .hero-trust {
@@ -298,7 +307,7 @@
       color: var(--accent);
       margin-bottom: 14px;
     }
-    .s-tag::before { content:''; display:block; width:20px; height:1px; background:var(--accent); }
+    .s-tag::before { content:''; display:block; width:24px; height:2px; background:linear-gradient(90deg,var(--accent-hot),var(--accent)); }
     .s-title {
       font-size: clamp(30px,3.8vw,52px);
       font-weight: 800;
@@ -335,10 +344,10 @@
     .prob-card:hover { background: var(--surface-2); }
     .prob-x {
       width:28px; height:28px; border-radius:50%;
-      background:rgba(255,82,82,.09);
-      border:1px solid rgba(255,82,82,.22);
+      background:rgba(237,52,25,.10);
+      border:1px solid rgba(237,52,25,.28);
       display:flex; align-items:center; justify-content:center;
-      color:var(--red); font-size:13px; font-weight:700; flex-shrink:0;
+      color:var(--accent-hot); font-size:13px; font-weight:700; flex-shrink:0;
     }
     .prob-card p { font-size:15.5px; color:var(--muted); line-height:1.65; }
 
@@ -401,13 +410,13 @@
       overflow: hidden;
       transition: border-color .2s, transform .22s;
     }
-    .mod-card:hover { border-color:rgba(232,160,28,.36); transform:translateY(-4px); }
+    .mod-card:hover { border-color:rgba(212,175,55,.36); transform:translateY(-4px); }
     .mod-card::before {
       content:'';
       position:absolute;
       top:0; left:0; right:0;
       height:2px;
-      background:linear-gradient(90deg,var(--accent),transparent);
+      background:linear-gradient(90deg,var(--accent),var(--accent-hot) 55%,transparent);
       opacity:0; transition:opacity .22s;
     }
     .mod-card:hover::before { opacity:1; }
@@ -423,8 +432,8 @@
     .mod-list { list-style:none; display:flex; flex-direction:column; gap:9px; }
     .mod-list li { font-size:15px; color:var(--muted); display:flex; gap:9px; align-items:flex-start; line-height:1.55; }
     .mod-list li::before { content:'→'; color:var(--accent); font-family:var(--ff-mono); font-size:11px; flex-shrink:0; margin-top:3px; }
-    .mod-bonus { background:linear-gradient(135deg,rgba(232,160,28,.07),rgba(232,160,28,.02)); border-color:rgba(232,160,28,.22); }
-    .mod-bonus .mod-num { color:rgba(232,160,28,.14); }
+    .mod-bonus { background:linear-gradient(135deg,rgba(212,175,55,.07),rgba(212,175,55,.02)); border-color:rgba(212,175,55,.22); }
+    .mod-bonus .mod-num { color:rgba(212,175,55,.14); }
 
     /* ── INSTRUCTORS ───────────────── */
     .inst-grid {
@@ -507,11 +516,16 @@
     .price-top { padding:36px; text-align:center; border-bottom:1px solid var(--border); }
     .price-plan { font-family:var(--ff-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
     .price-val {
-      font-family:var(--ff-display); font-size:76px; font-weight:800;
-      color:var(--text); letter-spacing:-.05em; line-height:1;
+      font-family:var(--ff-display); font-size:64px; font-weight:800;
+      color:var(--text); letter-spacing:-.04em; line-height:1;
     }
-    .price-val sup { font-size:18px; vertical-align:middle; margin-right:4px; font-weight:600; letter-spacing:0; opacity:.85; }
-    .price-inst { font-family:var(--ff-mono); font-size:13.5px; color:var(--muted); margin-top:8px; }
+    .price-val .amt {
+      background:linear-gradient(115deg, var(--gold-hi) 15%, var(--accent) 60%, var(--gold-deep) 105%);
+      -webkit-background-clip:text; background-clip:text;
+      color:var(--accent); -webkit-text-fill-color:transparent;
+    }
+    .price-inst { font-family:var(--ff-mono); font-size:13.5px; color:var(--muted); margin-top:10px; }
+    .price-inst strong { color:var(--text); font-weight:600; }
     .price-feats { padding:28px 36px; display:flex; flex-direction:column; gap:12px; }
     .price-feat { display:flex; align-items:center; gap:11px; font-size:15.5px; color:var(--muted); }
     .price-feat .ok { color:var(--green); font-size:15px; font-weight:700; flex-shrink:0; }
@@ -519,12 +533,12 @@
     .btn-full {
       display:flex; align-items:center; justify-content:center; gap:11px;
       width:100%; padding:17px 28px;
-      background:var(--accent); color:#0B0B09;
+      background:linear-gradient(160deg, var(--gold-hi) 0%, var(--accent) 55%, var(--gold-deep) 130%); color:#0B0B09;
       font-family:var(--ff-display); font-weight:800; font-size:17px;
       text-decoration:none; border-radius:var(--r); letter-spacing:.01em;
       text-transform:uppercase; transition:background .18s,transform .2s,box-shadow .2s;
     }
-    .btn-full:hover { background:#F5B82E; transform:translateY(-2px); box-shadow:0 12px 40px rgba(232,160,28,.32); }
+    .btn-full:hover { filter:brightness(1.12); transform:translateY(-2px); box-shadow:0 12px 40px rgba(212,175,55,.32); }
     .price-secure { text-align:center; padding:16px 36px; font-family:var(--ff-mono); font-size:12px; color:var(--muted); border-top:1px solid var(--border); }
     .guarantee {
       margin-top:20px; padding:22px 24px;
@@ -578,7 +592,7 @@
       align-items: flex-start;
       transition: border-color .2s;
     }
-    .data-card:hover { border-color: rgba(232,160,28,.36); }
+    .data-card:hover { border-color: rgba(212,175,55,.36); }
     .data-ico { font-size: 28px; flex-shrink: 0; line-height: 1.2; }
     .data-card p { font-size: 15.5px; color: var(--muted); line-height: 1.65; margin:0; }
     .data-card strong { color: var(--text); font-weight: 700; display:block; margin-bottom:4px; font-size:16px; }
@@ -601,10 +615,10 @@
       overflow: hidden;
       transition: border-color .2s, transform .22s;
     }
-    .community-card:hover { border-color: rgba(232,160,28,.4); transform: translateY(-3px); }
+    .community-card:hover { border-color: rgba(212,175,55,.4); transform: translateY(-3px); }
     .community-card::before {
       content:''; position:absolute; top:0; left:0; right:0; height:2px;
-      background: linear-gradient(90deg,var(--accent),transparent);
+      background: linear-gradient(90deg,var(--accent),var(--accent-hot) 55%,transparent);
     }
     .community-card-hd {
       display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;
@@ -634,8 +648,8 @@
     .community-highlight {
       margin-top: 28px;
       padding: 20px 26px;
-      background: rgba(232,160,28,.07);
-      border: 1px solid rgba(232,160,28,.22);
+      background: rgba(212,175,55,.07);
+      border: 1px solid rgba(212,175,55,.22);
       border-radius: var(--r-lg);
       display: flex; align-items: center; gap: 18px;
     }
@@ -659,7 +673,7 @@
       padding: 28px;
       transition: border-color .2s, transform .22s;
     }
-    .fomo-card:hover { border-color: rgba(232,160,28,.36); transform: translateY(-3px); }
+    .fomo-card:hover { border-color: rgba(212,175,55,.36); transform: translateY(-3px); }
     .fomo-card-ico { font-size: 26px; margin-bottom: 14px; line-height: 1; }
     .fomo-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
     .fomo-card p { font-size: 15px; color: var(--muted); line-height: 1.65; margin:0; }
@@ -669,8 +683,8 @@
     .prob-closing {
       margin-top: 28px;
       padding: 18px 24px;
-      background: rgba(255,77,26,.07);
-      border: 1px solid rgba(255,77,26,.2);
+      background: rgba(237,52,25,.07);
+      border: 1px solid rgba(237,52,25,.2);
       border-radius: var(--r);
       font-size: 15.5px; color: var(--muted); font-style: italic; line-height:1.65;
     }
@@ -706,7 +720,7 @@
     .value-item {
       display: flex; align-items: center; justify-content: space-between;
       padding: 10px 20px; gap: 12px;
-      border-bottom: 1px solid rgba(224,160,28,.06);
+      border-bottom: 1px solid rgba(212,175,55,.06);
     }
     .value-item:last-child { border-bottom: none; }
     .value-item-name { font-size: 14px; color: var(--muted); }
@@ -715,8 +729,8 @@
     .value-item-total .value-item-name { font-weight: 600; color: var(--text); font-size: 14.5px; }
     .value-crossed { text-decoration: line-through; opacity:.5; }
     .value-item-you-pay {
-      background: rgba(232,160,28,.07);
-      border-top: 1px solid rgba(232,160,28,.18) !important;
+      background: rgba(212,175,55,.07);
+      border-top: 1px solid rgba(212,175,55,.18) !important;
     }
     .value-item-you-pay .value-item-name { font-weight: 700; color: var(--text); font-size: 15px; }
     .value-you-pay-price { color: var(--accent) !important; font-size: 18px !important; font-weight: 700; }
@@ -725,8 +739,8 @@
     .feat-badge {
       display: inline-flex; align-items: center;
       padding: 1px 7px; margin-left: 6px;
-      background: rgba(232,160,28,.15);
-      border: 1px solid rgba(232,160,28,.3);
+      background: rgba(212,175,55,.15);
+      border: 1px solid rgba(212,175,55,.3);
       border-radius: 100px;
       font-family: var(--ff-mono); font-size: 9px;
       letter-spacing: .08em; color: var(--accent);
@@ -740,7 +754,7 @@
     .final::before {
       content:''; position:absolute; bottom:-180px; left:50%; transform:translateX(-50%);
       width:560px; height:560px;
-      background:radial-gradient(circle,rgba(232,160,28,.09) 0%,transparent 70%);
+      background:radial-gradient(circle at 50% 75%,rgba(237,52,25,.06) 0%,transparent 55%),radial-gradient(circle,rgba(212,175,55,.10) 0%,transparent 70%);
       pointer-events:none;
     }
     .final .s-sub { margin:0 auto 36px; }
@@ -810,7 +824,7 @@
 <nav class="nav" id="nav">
   <div class="container">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">Do Zero ao Expert em <b>Claude Code</b></a>
+      <a href="#" class="nav-logo">Reis do <b>Claude Code</b></a>
       <a href="#pricing" class="nav-btn">Quero Entrar →</a>
     </div>
   </div>
@@ -823,17 +837,17 @@
   <div class="container">
     <div class="hero-inner">
       <div class="hero-copy">
-        <div class="hero-badge">⚠️ A janela de oportunidade está fechando</div>
-        <h1>Quem não aprender a usar IA agora vai trabalhar para quem aprendeu.</h1>
-        <p class="hero-sub">O Claude Code é a ferramenta que está substituindo desenvolvedores, acelerando negócios e gerando renda para quem age rápido. Você pode aprender hoje — ou assistir os outros ganhando.</p>
+        <div class="hero-badge">👑 Feito por quem entrega pra cliente de verdade</div>
+        <h1>Construa o <em>primeiro sistema</em> do seu negócio com IA, sem saber programar.</h1>
+        <p class="hero-sub">Atendimento, orçamento, agendamento, follow-up: o que hoje você faz na mão, você aprende a transformar em sistema funcionando. Passo a passo, guiado por um dev que constrói pra cliente de verdade. Você termina com algo rodando, não com mais teoria.</p>
         <div class="hero-actions">
           <a href="#pricing" class="btn-primary">QUERO ENTRAR →</a>
         </div>
         <div class="hero-trust">
           <span class="trust-pill"><span class="ok">✓</span> 7 dias de garantia</span>
-          <span class="trust-pill"><span class="ok">✓</span> Acesso vitalício</span>
+          <span class="trust-pill"><span class="ok">✓</span> Atualizações incluídas</span>
           <span class="trust-pill"><span class="ok">✓</span> Comunidade no WhatsApp</span>
-          <span class="trust-pill"><span class="ok">✓</span> Lives semanais</span>
+          <span class="trust-pill"><span class="ok">✓</span> Sem precisar programar</span>
         </div>
       </div>
 
@@ -843,7 +857,7 @@
           <div class="term-dot"></div>
           <div class="term-dot"></div>
           <div class="term-dot"></div>
-          <span class="term-label">claude-code — zsh</span>
+          <span class="term-label">claude-code · zsh</span>
         </div>
         <div class="term-body" id="termBody"><span class="tcursor"></span></div>
       </div>
@@ -861,19 +875,19 @@
   <div class="container">
     <div class="s-tag">Realidade</div>
     <h2 class="s-title rev">Isso não é mais o futuro.<br>Já está acontecendo.</h2>
-    <p class="urgencia-intro rev d1">Enquanto você lê isso, empreendedores estão construindo projetos com Claude Code que antes custavam R$5.000 em desenvolvimento. Freelancers estão cobrando por entregas que levaram 2 horas pra fazer. Negócios inteiros estão sendo automatizados por pessoas que há 3 meses não sabiam programar nada. A IA não vai substituir as pessoas — vai substituir as pessoas que não sabem usar IA. E o Claude Code é a ferramenta mais poderosa que existe pra isso hoje.</p>
+    <p class="urgencia-intro rev d1">Robô que responde cliente no WhatsApp. Site que sai do papel num fim de semana. Orçamento que se monta sozinho. Nada disso exige saber programar: exige saber dar as instruções certas pra uma IA que executa. O Claude Code escreve o código, corrige os erros e coloca no ar. E quem conhece o negócio decide o que construir: você.</p>
     <div class="data-grid">
       <div class="data-card rev d1">
-        <div class="data-ico">🚀</div>
-        <p><strong>+40% de produtividade</strong>relatada por quem usa Claude Code diariamente no trabalho</p>
+        <div class="data-ico">🤖</div>
+        <p><strong>Robô de atendimento no WhatsApp</strong>o tipo de sistema que o Luiz entrega pra cliente, e que você aprende a construir pro seu negócio</p>
       </div>
       <div class="data-card rev d2">
-        <div class="data-ico">💰</div>
-        <p><strong>Projetos que custavam R$5k</strong>sendo entregues por iniciantes em questão de dias</p>
+        <div class="data-ico">🌐</div>
+        <p><strong>Site e sistema no ar</strong>do papel pra internet sem contratar agência, com o Claude escrevendo o código por você</p>
       </div>
       <div class="data-card rev d3">
         <div class="data-ico">⏱️</div>
-        <p><strong>Horas viram minutos</strong>— tarefas repetitivas eliminadas de vez com automação real</p>
+        <p><strong>Processo manual virando automático</strong>orçamento, agendamento, follow-up: o que toma horas da semana passa a rodar sozinho</p>
       </div>
     </div>
   </div>
@@ -884,34 +898,34 @@
   <div class="container">
     <div class="s-tag">O problema</div>
     <h2 class="s-title rev">Você se identifica<br>com isso?</h2>
-    <p class="prob-sub rev d1">Se sim, cada dia que passa você está ficando mais pra trás.</p>
+    <p class="prob-sub rev d1">Se você se viu em pelo menos um desses, essa página foi escrita pra você.</p>
     <div class="prob-grid">
       <div class="prob-card rev d1">
         <div class="prob-x">✕</div>
-        <p>Passa horas assistindo tutorial mas nunca termina nenhum projeto</p>
+        <p>Perde horas fazendo na mão o que dava pra automatizar: atendimento, agendamento, orçamento, follow-up</p>
       </div>
       <div class="prob-card rev d2">
         <div class="prob-x">✕</div>
-        <p>Já tentou usar IA pra codar mas não sabe nem por onde começar</p>
+        <p>Pediu orçamento pra uma agência e o preço não fez sentido pra algo que você desconfia que conseguiria fazer sozinho</p>
       </div>
       <div class="prob-card rev d3">
         <div class="prob-x">✕</div>
-        <p>Fica preso no ChatGPT respondendo texto quando podia estar executando tarefas reais</p>
+        <p>Tem uma ideia de sistema pro seu negócio há tempos, mas não sabe nem por onde começar</p>
       </div>
       <div class="prob-card rev d1">
         <div class="prob-x">✕</div>
-        <p>Não consegue instalar, configurar nem conectar as ferramentas certas</p>
+        <p>Depende de alguém técnico pra tudo, e qualquer ajuste simples trava a empresa por semanas</p>
       </div>
       <div class="prob-card rev d2">
         <div class="prob-x">✕</div>
-        <p>Vê outros construindo projetos com IA e sente que ficou pra trás</p>
+        <p>Já tentou montar algo sozinho e o resultado ficou amador demais pra colocar na frente de cliente</p>
       </div>
       <div class="prob-card rev d3">
         <div class="prob-x">✕</div>
-        <p>Só acha conteúdo sobre Claude Code em inglês e completamente raso</p>
+        <p>Não sabe o que a IA consegue fazer pelo seu negócio, então continua fazendo tudo do jeito antigo</p>
       </div>
     </div>
-    <p class="prob-closing rev">Cada dia sem aprender isso é um dia a mais que seu concorrente está na sua frente.</p>
+    <p class="prob-closing rev">Nenhuma dessas dores precisa de agência nem de programador pra resolver. Precisa da ferramenta certa e de alguém te mostrando o caminho. É exatamente isso que tem aqui.</p>
   </div>
 </section>
 
@@ -922,7 +936,7 @@
     <div class="sol-layout">
       <div class="sol-text">
         <h2 class="s-title rev">Claude Code não<br>responde. Ele <em style="color:var(--accent)">age.</em></h2>
-        <p class="rev">Enquanto o ChatGPT te diz o que fazer, o Claude Code vai lá e faz. Ele lê seus arquivos, escreve código, corrige erros e coloca projetos no ar — tudo dentro do seu computador, em tempo real. Nesse curso você aprende exatamente isso, do zero, na prática, sem precisar ter base em programação.</p>
+        <p class="rev">Enquanto o ChatGPT te explica o que fazer, o Claude Code vai lá e faz. Você escreve em português o que precisa, tipo "monta um site pro meu serviço" ou "cria um robô que responde orçamento", e ele escreve o código, corrige os erros e coloca no ar. Você não programa: você dá as ordens. Nesse curso você aprende exatamente isso, do zero, aplicado ao seu negócio.</p>
         <div class="feat-list">
           <div class="feat-item rev d1">
             <span class="feat-ico">⚡</span>
@@ -934,15 +948,15 @@
           <div class="feat-item rev d2">
             <span class="feat-ico">🎯</span>
             <div>
-              <h4>Projetos reais do início ao fim</h4>
-              <p>Cada módulo entrega algo funcionando. Você sai com resultado concreto, não só conhecimento.</p>
+              <h4>Você termina com algo construído</h4>
+              <p>Não é curso de panorama. Cada módulo termina com algo funcionando, e você sai com seu primeiro sistema no ar.</p>
             </div>
           </div>
           <div class="feat-item rev d3">
             <span class="feat-ico">🚀</span>
             <div>
               <h4>Baseado em uso real</h4>
-              <p>O conteúdo é o que o Luiz usa todo dia em projetos reais de clientes. Não é teoria de curso.</p>
+              <p>O conteúdo é o que o Luiz usa todo dia em projeto pago por cliente. O caminho já foi testado onde importa.</p>
             </div>
           </div>
         </div>
@@ -950,21 +964,21 @@
       <div class="rev d2">
         <div class="code-box">
           <div class="code-box-hd">
-            <span>projeto-cliente/pagamento.js</span>
+            <span>meu-negocio/atendimento.js</span>
             <span class="code-running">✓ executando</span>
           </div>
           <div class="code-bd">
             <div><span class="c-cm">// Claude Code escreveu isso pra você</span></div>
             <div><span class="c-kw">const</span> <span class="c-va">app</span> = <span class="c-fn">require</span>(<span class="c-st">'express'</span>)()</div>
             <div>&nbsp;</div>
-            <div><span class="c-va">app</span>.<span class="c-fn">post</span>(<span class="c-st">'/pix/webhook'</span>, <span class="c-kw">async</span> (req, res) => {</div>
-            <div>&nbsp;&nbsp;<span class="c-kw">const</span> { <span class="c-va">txid</span>, <span class="c-va">valor</span> } = req.<span class="c-va">body</span></div>
-            <div>&nbsp;&nbsp;<span class="c-kw">await</span> <span class="c-fn">confirmarPagamento</span>(<span class="c-va">txid</span>, <span class="c-va">valor</span>)</div>
-            <div>&nbsp;&nbsp;<span class="c-kw">await</span> <span class="c-fn">liberarAcesso</span>(<span class="c-va">txid</span>)</div>
+            <div><span class="c-va">app</span>.<span class="c-fn">post</span>(<span class="c-st">'/whatsapp/mensagem'</span>, <span class="c-kw">async</span> (req, res) => {</div>
+            <div>&nbsp;&nbsp;<span class="c-kw">const</span> { <span class="c-va">cliente</span>, <span class="c-va">texto</span> } = req.<span class="c-va">body</span></div>
+            <div>&nbsp;&nbsp;<span class="c-kw">const</span> <span class="c-va">resposta</span> = <span class="c-kw">await</span> <span class="c-fn">montarResposta</span>(<span class="c-va">texto</span>)</div>
+            <div>&nbsp;&nbsp;<span class="c-kw">await</span> <span class="c-fn">enviarWhatsApp</span>(<span class="c-va">cliente</span>, <span class="c-va">resposta</span>)</div>
             <div>&nbsp;&nbsp;res.<span class="c-fn">json</span>({ <span class="c-va">status</span>: <span class="c-st">'ok'</span> })</div>
             <div>})</div>
             <div>&nbsp;</div>
-            <div><span class="c-cm">// ✓ 3 arquivos criados — servidor na porta 3000</span></div>
+            <div><span class="c-cm">// ✓ 3 arquivos criados, atendimento no ar</span></div>
           </div>
         </div>
       </div>
@@ -977,38 +991,39 @@
   <div class="container">
     <div class="s-tag">Conteúdo</div>
     <h2 class="s-title rev">O que você vai aprender</h2>
-    <p class="s-sub rev d1">4 módulos práticos do zero ao expert</p>
+    <p class="s-sub rev d1">4 módulos práticos: cada um termina com algo construído</p>
     <div class="mod-grid">
       <div class="mod-card rev d1">
         <div class="mod-num">01</div>
-        <h3 class="mod-title"><em>Setup</em> Inicial</h3>
+        <h3 class="mod-title">Do zero ao Claude <em>rodando</em> na sua máquina</h3>
         <ul class="mod-list">
-          <li>O que é Claude Code e o que dá pra fazer</li>
-          <li>Inglês básico que você vai precisar</li>
-          <li>Instalando tudo: Node, terminal e Claude Code</li>
-          <li>Configuração inicial e primeiro acesso</li>
-          <li>Sites e ferramentas do curso</li>
+          <li>O que é o Claude Code e o que dá pra construir com ele</li>
+          <li>Instalando tudo passo a passo, mesmo que você nunca tenha aberto um terminal</li>
+          <li>O básico de inglês que aparece pelo caminho</li>
+          <li>Sites e ferramentas que você vai usar no curso</li>
+          <li>Você termina com: o Claude instalado e respondendo na sua máquina</li>
         </ul>
       </div>
       <div class="mod-card rev d2">
         <div class="mod-num">02</div>
-        <h3 class="mod-title">Primeiro <em>Projeto</em></h3>
+        <h3 class="mod-title">Seu primeiro projeto <em>no ar</em></h3>
         <ul class="mod-list">
-          <li>Iniciando um projeto do zero</li>
-          <li>Como dar instruções certas pro Claude</li>
+          <li>Começando um projeto do zero, do jeito certo</li>
+          <li>Como dar instruções que o Claude entende e executa</li>
           <li>Construindo algo real do início ao funcionando</li>
-          <li>Git e repositório sem enrolação</li>
-          <li>Hospedagem: projeto no ar de verdade</li>
+          <li>Salvando tudo com segurança (o famoso Git, sem complicação)</li>
+          <li>Você termina com: seu projeto publicado na internet</li>
         </ul>
       </div>
       <div class="mod-card rev d3">
         <div class="mod-num">03</div>
-        <h3 class="mod-title">Skills <em>Essenciais</em></h3>
+        <h3 class="mod-title">O Claude conectado ao <em>seu negócio</em></h3>
         <ul class="mod-list">
-          <li>Configurando e usando MCPs no dia a dia</li>
-          <li>Skills de front-end com Claude Code</li>
-          <li>Planejamento e arquitetura de projetos</li>
-          <li>Clonando e modelando projetos existentes</li>
+          <li>Conectando o Claude às ferramentas que você já usa, tipo Drive e planilha</li>
+          <li>Deixando seus projetos com cara de profissional</li>
+          <li>Como planejar um sistema antes de construir (e errar menos)</li>
+          <li>Clonando e adaptando projetos que já funcionam</li>
+          <li>Você termina com: o Claude trabalhando junto com as suas ferramentas</li>
         </ul>
       </div>
       <div class="mod-card mod-bonus rev d4">
@@ -1017,7 +1032,7 @@
         <ul class="mod-list">
           <li>Como pagar menos nas assinaturas de IA</li>
           <li>Como criar seu player de vídeo próprio</li>
-          <li>Prompt de acabamento para LPs de alta conversão</li>
+          <li>Prompt de acabamento pra deixar sua página de vendas com cara profissional</li>
         </ul>
       </div>
     </div>
@@ -1033,12 +1048,14 @@
       <div class="inst-card rev d1" style="max-width:560px">
         <img class="inst-av inst-av-luiz" src="assets/luiz.jpeg" alt="Luiz Bessa" loading="lazy" decoding="async">
         <h3 class="inst-name">Luiz Bessa</h3>
-        <p class="inst-role">Builder técnico de IA, estudante de Ciência da Computação na UnB, criador do curso</p>
-        <p class="inst-bio">Usa Claude Code todos os dias em projetos reais para clientes. Já entregou projetos que vão de agentes de WhatsApp a plataformas editoriais com IA. Estudante de Ciência da Computação na UnB — aprende na teoria e aplica na prática no mesmo dia.</p>
+        <p class="inst-role">Dev de verdade: estudante de Ciência da Computação na UnB, constrói sistemas para clientes</p>
+        <p class="inst-bio">Usa Claude Code todos os dias em projeto pago por cliente: já entregou de robô de atendimento no WhatsApp a plataforma editorial com IA. Estuda Ciência da Computação na UnB, aprende a teoria de manhã e aplica em projeto real à tarde. No Reis do Claude Code, ensina o mesmo caminho que usa no próprio trabalho, em português, começando do zero, sem enrolação.</p>
       </div>
     </div>
     <div class="creds rev">
       <div class="cred"><span class="ok">✓</span> Projetos reais entregues para clientes</div>
+      <div class="cred"><span class="ok">✓</span> Ciência da Computação (UnB)</div>
+      <div class="cred"><span class="ok">✓</span> Usa Claude Code todos os dias</div>
     </div>
   </div>
 </section>
@@ -1126,51 +1143,38 @@
   <div class="container">
     <div class="s-tag">Mais do que um curso</div>
     <h2 class="s-title rev">Você não vai aprender sozinho.<br>Você vai <em style="color:var(--accent)">evoluir junto.</em></h2>
-    <p class="s-sub rev d1" style="max-width:640px">A maioria dos cursos te deixa pra lá depois da compra. Aqui é diferente: você entra pra uma comunidade ativa e ainda tem acesso direto ao Luiz toda semana.</p>
+    <p class="s-sub rev d1" style="max-width:640px">O Reis do Claude Code nasceu como comunidade no WhatsApp, e continua sendo. Quem entra no curso entra pro grupo de quem está construindo, com atenção pessoal do Luiz.</p>
     <div class="community-grid">
       <div class="community-card rev d1">
         <div class="community-card-hd">
           <span class="community-ico">💬</span>
           <span class="community-badge">INCLUSO</span>
         </div>
-        <h3>Comunidade exclusiva no WhatsApp</h3>
-        <p>Acesso direto a outros alunos, troca de projetos, dúvidas respondidas em tempo real e network com pessoas construindo as mesmas coisas que você. Não tem preço esse tipo de ambiente.</p>
+        <h3>Comunidade Reis do Claude Code no WhatsApp</h3>
+        <p>O grupo que dá nome ao curso: empreendedores construindo as próprias soluções, trocando projetos e destravando juntos. Você não fica sozinho com a dúvida.</p>
         <ul class="community-list">
           <li>Tire dúvidas com quem já passou pelo mesmo problema</li>
-          <li>Compartilhe seus projetos e receba feedback real</li>
-          <li>Networking com empreendedores e freelancers usando Claude Code</li>
+          <li>Mostre o que está construindo e receba feedback de verdade</li>
+          <li>Network com outros donos de negócio usando IA no dia a dia</li>
         </ul>
       </div>
       <div class="community-card rev d2">
         <div class="community-card-hd">
-          <span class="community-ico">🎙️</span>
-          <span class="community-badge">INCLUSO</span>
-        </div>
-        <h3>Lives semanais ao vivo</h3>
-        <p>Toda semana o Luiz entra ao vivo pra tirar dúvidas, mostrar novidades do Claude Code, revisar projetos dos alunos e compartilhar o que está funcionando nos clientes reais dele.</p>
-        <ul class="community-list">
-          <li>Sessões ao vivo com o Luiz toda semana</li>
-          <li>Revisão de projetos e feedback ao vivo</li>
-          <li>Acesso às gravações para quem não conseguir assistir</li>
-        </ul>
-      </div>
-      <div class="community-card rev d3">
-        <div class="community-card-hd">
           <span class="community-ico">📲</span>
           <span class="community-badge">INCLUSO</span>
         </div>
-        <h3>Acesso direto comigo no WhatsApp</h3>
-        <p>Tira dúvida, mostra projeto, recebe feedback real enquanto constrói. Sem intermediário, sem fila de suporte.</p>
+        <h3>Atenção pessoal do Luiz</h3>
+        <p>Quem compra não vira número. O Luiz acompanha a comunidade de perto: responde dúvidas, olha projetos e aponta o caminho de quem está construindo.</p>
         <ul class="community-list">
-          <li>Fala direto comigo, sem intermediário</li>
-          <li>Mostra o que está construindo e recebe feedback real</li>
-          <li>Resposta de quem usa Claude Code todo dia em projeto de cliente</li>
+          <li>Respostas de quem usa Claude Code todo dia em projeto de cliente</li>
+          <li>Feedback no que você está construindo</li>
+          <li>Sem robô de suporte: é o Luiz mesmo</li>
         </ul>
       </div>
     </div>
     <div class="community-highlight rev d3">
-      <span class="community-highlight-ico">🔥</span>
-      <p>Enquanto outros cursos cobram centenas de reais por mentoria e comunidade separados, aqui entra tudo no mesmo acesso. Por R$267.</p>
+      <span class="community-highlight-ico">👑</span>
+      <p>Reis do Claude Code é o grupo de quem constrói. O curso é o caminho. A comunidade é onde você não trava sozinho.</p>
     </div>
   </div>
 </section>
@@ -1182,24 +1186,24 @@
     <h2 class="s-title rev">Por que aprender isso agora<br>e não depois?</h2>
     <div class="fomo-grid">
       <div class="fomo-card rev d1">
-        <div class="fomo-card-ico">⏳</div>
-        <h4>A curva de adoção está no início</h4>
-        <p>Quem aprende uma tecnologia no começo da curva colhe os maiores frutos. ChatGPT todo mundo já usa. Claude Code ainda é território de quem sai na frente.</p>
+        <div class="fomo-card-ico">🌅</div>
+        <h4>Claude Code ainda é território de quem chega cedo</h4>
+        <p>ChatGPT todo mundo já usa. IA que executa e constrói, quase ninguém. Quem aprende agora constrói antes, e aprende com calma, enquanto é vantagem e não obrigação.</p>
       </div>
       <div class="fomo-card rev d2">
-        <div class="fomo-card-ico">🏆</div>
-        <h4>Primeiros a dominar, primeiros a cobrar mais</h4>
-        <p>Clientes pagam premium pra quem entrega com velocidade e qualidade. Quem usa Claude Code entrega as duas coisas ao mesmo tempo.</p>
+        <div class="fomo-card-ico">⏱️</div>
+        <h4>Cada processo automatizado é tempo que volta</h4>
+        <p>O orçamento que se monta sozinho, o cliente respondido na hora, o follow-up que não depende de você lembrar. O retorno começa na primeira automação que você coloca no ar.</p>
       </div>
       <div class="fomo-card rev d3">
-        <div class="fomo-card-ico">📉</div>
-        <h4>Esperar tem um custo real</h4>
-        <p>Cada semana sem essa habilidade é uma semana de projetos que você não fez, clientes que você não atendeu, renda que você não gerou.</p>
+        <div class="fomo-card-ico">🔓</div>
+        <h4>Autonomia técnica destrava o negócio</h4>
+        <p>A ideia deixa de esperar orçamento de terceiro. Você testa, ajusta e coloca no ar no mesmo dia. A decisão volta pra sua mão.</p>
       </div>
       <div class="fomo-card rev d4">
-        <div class="fomo-card-ico">🔥</div>
-        <h4>O mercado não vai te esperar</h4>
-        <p>Não existe "vou aprender quando tiver tempo". O mercado está se movendo agora. Ou você embarca ou assiste de fora.</p>
+        <div class="fomo-card-ico">♾️</div>
+        <h4>Aprende uma vez, usa pra sempre</h4>
+        <p>O curso vive atualizado, mas o principal fica com você pra sempre: a habilidade de construir. Cada sistema novo sai mais rápido que o anterior.</p>
       </div>
     </div>
   </div>
@@ -1210,59 +1214,29 @@
   <div class="container">
     <div class="s-tag" style="justify-content:center">Investimento</div>
     <h2 class="s-title rev" style="text-align:center">Acesso completo ao<br>curso por</h2>
-    <p class="price-subtitle rev d1">Menos do que duas horas de desenvolvimento terceirizado.</p>
-    <p class="price-context rev d2">Um desenvolvedor freelancer cobra em média <strong style="color:var(--text)">R$150/hora</strong>. Por <strong style="color:var(--accent)">R$267</strong> você aprende a fazer o trabalho dele — e ainda entra numa comunidade ativa que te acompanha enquanto você cresce.</p>
-    <div class="value-stack rev d3">
-      <p class="value-stack-label">O que entra no seu acesso</p>
-      <div class="value-stack-items">
-        <div class="value-item">
-          <span class="value-item-name">📚 Curso completo (4 módulos)</span>
-          <span class="value-item-price">R$297</span>
-        </div>
-        <div class="value-item">
-          <span class="value-item-name">💬 Comunidade exclusiva no WhatsApp</span>
-          <span class="value-item-price">R$97</span>
-        </div>
-        <div class="value-item">
-          <span class="value-item-name">🎙️ Lives semanais ao vivo com o instrutor</span>
-          <span class="value-item-price">R$697</span>
-        </div>
-        <div class="value-item">
-          <span class="value-item-name">🎁 3 bônus exclusivos</span>
-          <span class="value-item-price">R$97</span>
-        </div>
-        <div class="value-item value-item-total">
-          <span class="value-item-name">Valor total</span>
-          <span class="value-item-price value-crossed">R$1.188</span>
-        </div>
-        <div class="value-item value-item-you-pay">
-          <span class="value-item-name">Você paga hoje</span>
-          <span class="value-item-price value-you-pay-price">R$267</span>
-        </div>
-      </div>
-    </div>
+    <p class="price-subtitle rev d1">O primeiro degrau, acessível de propósito.</p>
+    <p class="price-context rev d2">O preço é baixo por decisão, não porque o conteúdo é raso: o objetivo é que o máximo de gente construa o primeiro sistema. Qualquer automação simples terceirizada custa várias vezes isso. Aqui você aprende a construir a sua, e a habilidade fica com você.</p>
     <div class="pricing-wrap">
       <div class="price-card rev">
         <div class="price-top">
-          <p class="price-plan">Acesso Completo + Comunidade + Lives</p>
-          <p class="price-val"><sup>12x R$</sup>27,61</p>
-          <p class="price-inst">ou R$267 à vista</p>
+          <p class="price-plan">Reis do Claude Code · Acesso Anual</p>
+          <p class="price-val">12x <span class="amt">R$9</span></p>
+          <p class="price-inst">ou <strong>R$87</strong> à vista pelo ano</p>
         </div>
         <div class="price-feats">
-          <div class="price-feat"><span class="ok">✓</span> Módulos 1, 2, 3 e 4 completos</div>
-          <div class="price-feat"><span class="ok">✓</span> Projetos práticos do zero ao funcionando</div>
-          <div class="price-feat"><span class="ok">✓</span> Acesso vitalício ao conteúdo</div>
+          <div class="price-feat"><span class="ok">✓</span> 4 módulos completos, do zero ao sistema no ar</div>
+          <div class="price-feat"><span class="ok">✓</span> Projetos práticos do início ao funcionando</div>
+          <div class="price-feat"><span class="ok">✓</span> Um ano de acesso a todo o conteúdo</div>
           <div class="price-feat"><span class="ok">✓</span> Atualizações incluídas sem custo</div>
-          <div class="price-feat price-feat-new"><span class="ok">✓</span> <span>Comunidade exclusiva no WhatsApp <span class="feat-badge">NOVO</span></span></div>
-          <div class="price-feat price-feat-new"><span class="ok">✓</span> <span>Lives semanais ao vivo com o instrutor <span class="feat-badge">NOVO</span></span></div>
+          <div class="price-feat price-feat-new"><span class="ok">✓</span> <span>Comunidade Reis do Claude Code no WhatsApp</span></div>
+          <div class="price-feat price-feat-new"><span class="ok">✓</span> <span>Atenção pessoal do Luiz na comunidade</span></div>
           <div class="price-feat"><span class="ok">✓</span> Bônus: economizar nas assinaturas de IA</div>
           <div class="price-feat"><span class="ok">✓</span> Bônus: player de vídeo próprio</div>
-          <div class="price-feat"><span class="ok">✓</span> Bônus: prompt de acabamento para LPs</div>
+          <div class="price-feat"><span class="ok">✓</span> Bônus: prompt de acabamento pra páginas de venda</div>
         </div>
         <div class="price-cta">
-          <a href="https://pay.kiwify.com.br/ABt1ioA" class="btn-full" target="_blank" rel="noopener noreferrer">GARANTIR MINHA VAGA AGORA →</a>
+          <a href="https://pay.kiwify.com.br/pvRX1Ts" class="btn-full" target="_blank" rel="noopener noreferrer">QUERO ENTRAR AGORA →</a>
         </div>
-        <p class="price-launch">R$267 é preço atual. Próxima atualização do curso (módulos avançados) sobe pra R$497.</p>
         <div class="price-secure">🔒 Pagamento 100% seguro via Kiwify</div>
       </div>
       <div class="guarantee rev d1">
@@ -1289,7 +1263,7 @@
       </div>
       <div class="faq-item rev d2">
         <div class="faq-q"><span>Por quanto tempo terei acesso?</span><span class="faq-plus">+</span></div>
-        <div class="faq-a"><p class="faq-a-in">Para sempre. Acesso vitalício, incluindo todas as atualizações futuras do curso.</p></div>
+        <div class="faq-a"><p class="faq-a-in">O acesso é anual: R$87 valem por um ano completo de curso, comunidade e todas as atualizações do período. Chegando perto de vencer, você decide se renova.</p></div>
       </div>
       <div class="faq-item rev d3">
         <div class="faq-q"><span>Funciona no Mac e Windows?</span><span class="faq-plus">+</span></div>
@@ -1300,12 +1274,20 @@
         <div class="faq-a"><p class="faq-a-in">Você tem 7 dias para testar o curso completo. Se não gostar por qualquer motivo, basta mandar uma mensagem e devolvemos 100% do valor. Sem perguntas.</p></div>
       </div>
       <div class="faq-item rev d2">
+        <div class="faq-q"><span>Tem aula ao vivo?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p class="faq-a-in">Não. As aulas são gravadas, pra você assistir no seu ritmo e voltar quantas vezes quiser. As dúvidas acontecem na comunidade do WhatsApp, sem depender de horário marcado.</p></div>
+      </div>
+      <div class="faq-item rev d3">
+        <div class="faq-q"><span>Preciso pagar mais alguma coisa além do curso?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p class="faq-a-in">O Claude é uma ferramenta da Anthropic e tem assinatura própria, separada do curso. Por transparência: você vai precisar dela pra praticar, e um dos bônus ensina como pagar menos nas assinaturas de IA.</p></div>
+      </div>
+      <div class="faq-item rev d2">
         <div class="faq-q"><span>Vou conseguir aplicar no meu negócio?</span><span class="faq-plus">+</span></div>
-        <div class="faq-a"><p class="faq-a-in">Sim. O curso é focado em aplicações práticas que você pode usar imediatamente — seja para economizar tempo, automatizar tarefas ou construir projetos para clientes.</p></div>
+        <div class="faq-a"><p class="faq-a-in">Sim, o curso foi desenhado pra isso. Os projetos são o tipo de coisa que negócio usa de verdade: atendimento, automação, site. Você pode ir construindo a versão do seu negócio já durante as aulas.</p></div>
       </div>
       <div class="faq-item rev d3">
         <div class="faq-q"><span>Não é tarde demais para aprender Claude Code?</span><span class="faq-plus">+</span></div>
-        <div class="faq-a"><p class="faq-a-in">É exatamente o contrário. Estamos no início da adoção em massa no Brasil. Quem aprende agora ainda pega a onda. Daqui a 1 ano todo mundo vai saber o básico — e a vantagem vai ser de quem foi mais fundo. Esse curso é o começo desse caminho.</p></div>
+        <div class="faq-a"><p class="faq-a-in">É o contrário: no Brasil, quase ninguém usa Claude Code ainda, e fora do mundo dev menos ainda. Aprender agora é aprender com calma, enquanto é vantagem e não obrigação. O curso é o primeiro degrau desse caminho.</p></div>
       </div>
     </div>
   </div>
@@ -1314,11 +1296,11 @@
 <!-- FINAL CTA -->
 <section class="final">
   <div class="container">
-    <div class="s-tag" style="justify-content:center">Decida agora</div>
-    <h2 class="s-title rev">A decisão que você toma hoje<br>define onde você vai estar em <em style="color:var(--accent)">6 meses</em>.</h2>
-    <p class="s-sub rev d1">De um lado: você entra, aprende, constrói e começa a colher resultados com IA de verdade. Do outro: você fecha essa página, volta pra rotina e assiste outras pessoas fazendo o que você poderia estar fazendo. A escolha é sua — mas ela tem prazo.</p>
+    <div class="s-tag" style="justify-content:center">O primeiro degrau</div>
+    <h2 class="s-title rev">O primeiro sistema do seu negócio<br>pode começar <em style="color:var(--accent)">hoje</em>.</h2>
+    <p class="s-sub rev d1">Você já sabe o que te toma horas toda semana. O caminho pra transformar isso em sistema está aqui: em português, do zero, com quem constrói pra cliente todos os dias. Entra, faz o módulo 1 e vê o Claude rodando na sua máquina ainda hoje. Se não for pra você, a garantia de 7 dias devolve tudo.</p>
     <div class="rev d2">
-      <a href="https://pay.kiwify.com.br/ABt1ioA" class="btn-primary" style="font-size:17px;padding:16px 38px" target="_blank" rel="noopener noreferrer">QUERO ENTRAR AGORA →</a>
+      <a href="https://pay.kiwify.com.br/pvRX1Ts" class="btn-primary" style="font-size:17px;padding:16px 38px" target="_blank" rel="noopener noreferrer">QUERO ENTRAR AGORA →</a>
     </div>
   </div>
 </section>
@@ -1327,7 +1309,7 @@
 <footer>
   <div class="container">
     <div class="foot-inner">
-      <span class="foot-logo">Do Zero ao Expert em <b>Claude Code</b></span>
+      <span class="foot-logo">Reis do <b>Claude Code</b></span>
       <div class="foot-links">
         <a href="#">Termos de Uso</a>
         <a href="#">Privacidade</a>
@@ -1343,14 +1325,14 @@
 
   /* ── Terminal animation ─────────────── */
   const LINES = [
-    { t: '$ claude "crie webhook para pagamentos PIX"', c: 'cmd', d: 400 },
-    { t: '✓ Lendo estrutura do projeto...', c: 'info', d: 1300 },
-    { t: '✓ Criando routes/pix-webhook.js', c: 'ok', d: 2000 },
-    { t: '✓ Adicionando validação de assinatura', c: 'ok', d: 2700 },
-    { t: '✓ Integrando com banco de dados', c: 'ok', d: 3400 },
-    { t: '✓ Escrevendo testes automatizados', c: 'ok', d: 4100 },
+    { t: '$ claude "monte um robô que responde meus clientes"', c: 'cmd', d: 400 },
+    { t: '✓ Entendendo o seu negócio...', c: 'info', d: 1300 },
+    { t: '✓ Criando o atendimento automático', c: 'ok', d: 2000 },
+    { t: '✓ Conectando com o WhatsApp', c: 'ok', d: 2700 },
+    { t: '✓ Testando as respostas', c: 'ok', d: 3400 },
+    { t: '✓ Corrigindo erros sozinho', c: 'ok', d: 4100 },
     { t: '', c: 'info', d: 4600 },
-    { t: '✓ Pronto! 4 arquivos criados.', c: 'ok', d: 4900 },
+    { t: '✓ Pronto! Atendimento no ar.', c: 'ok', d: 4900 },
   ];
 
   const termBody = document.getElementById('termBody');
@@ -1384,9 +1366,9 @@
 
   /* ── Ticker ─────────────────────────── */
   const WORDS = [
-    'Claude Code','Sem programar','Projetos reais','Do zero ao expert',
-    'Comunidade no WhatsApp','Lives semanais','Acesso vitalício','Suporte exclusivo',
-    'Git e GitHub','Hospedagem real','Automações com IA','Feito no Brasil',
+    'Reis do Claude Code','Sem programar','Sistema no ar','Atendimento automático',
+    'Comunidade no WhatsApp','Um ano de acesso','Atualizações incluídas','Projetos reais',
+    'Robôs de WhatsApp','Sites e automações','Do manual ao automático','Feito no Brasil',
   ];
   const track = document.getElementById('tickerTrack');
   // 2× é suficiente para loop contínuo seamless
@@ -1426,8 +1408,8 @@
     if (rafNav) return;
     rafNav = requestAnimationFrame(() => {
       navEl.style.borderBottomColor = window.scrollY > 60
-        ? 'rgba(232,160,28,.22)'
-        : 'rgba(224,160,28,.13)';
+        ? 'rgba(212,175,55,.28)'
+        : 'rgba(212,175,55,.16)';
       rafNav = null;
     });
   }, { passive: true });
