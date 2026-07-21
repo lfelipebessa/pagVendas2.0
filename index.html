@@ -478,16 +478,10 @@
     .mod-done strong { color:var(--accent); font-weight:600; display:block; margin-bottom:2px; }
     .mod-list { margin-bottom:18px; }
 
-    /* ── INSTRUCTORS ───────────────── */
-    .inst-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 28px;
-      margin-top: 52px;
-    }
+    /* ── QUEM ENSINA + PROVA ───────── */
+    .inst-grid { margin-top: 52px; }
     .inst-card {
-      flex: 1 1 460px;
+      max-width: 720px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
@@ -500,48 +494,51 @@
       border:2px solid var(--accent);
     }
     .inst-av-luiz { object-position:center 35%; }
-    .inst-name { font-size:21px; font-weight:700; margin-bottom:3px; }
-    .inst-role { font-family:var(--ff-mono); font-size:12px; color:var(--accent); margin-bottom:14px; }
+    .inst-name { font-size:21px; font-weight:700; margin-bottom:12px; }
     .inst-bio { font-size:15.5px; color:var(--muted); line-height:1.7; }
-    .creds {
-      margin-top:44px;
-      padding:22px 26px;
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:var(--r-lg);
-      display:flex; flex-wrap:wrap; gap:20px;
-    }
-    .cred { display:flex; align-items:center; gap:8px; font-size:14px; color:var(--muted); }
-    .cred .ok { color:var(--green); font-weight:700; }
 
-    /* ── TESTIMONIALS ──────────────── */
-    .testi { background:var(--surface); }
-    .testi-grid {
+    /* ── PROVA (CASES) ─────────────── */
+    .prova-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(295px,1fr));
-      gap: 18px;
-      margin-top: 52px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 28px;
     }
-    .testi-card {
-      background: var(--bg);
+    @media(max-width:760px){ .prova-grid { grid-template-columns:1fr; } }
+    .case-card {
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
-      padding: 24px;
+      overflow: hidden;
+      transition: border-color .2s, transform .22s;
     }
-    .stars { color:var(--accent); font-size:13px; margin-bottom:10px; }
-    .testi-q { font-size:36px; color:var(--accent); font-family:var(--ff-display); line-height:1; margin-bottom:10px; }
-    .testi-txt { font-size:15.5px; color:var(--muted); line-height:1.7; margin-bottom:18px; }
-    .testi-author { display:flex; align-items:center; gap:12px; }
-    .testi-av {
-      width:38px; height:38px; border-radius:50%;
-      background:var(--surface-2);
-      border:1px solid var(--border);
-      display:flex; align-items:center; justify-content:center;
-      font-family:var(--ff-display); font-weight:700; font-size:14px;
-      color:var(--accent); flex-shrink:0;
+    .case-card:hover { border-color: rgba(212,175,55,.36); transform: translateY(-3px); }
+    .case-shot {
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse at 50% 45%, rgba(212,175,55,.08), transparent 65%),
+        linear-gradient(rgba(212,175,55,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,55,.03) 1px, transparent 1px);
+      background-size: auto, 32px 32px, 32px 32px;
     }
-    .testi-name { font-weight:600; font-size:13.5px; }
-    .testi-meta { font-family:var(--ff-mono); font-size:11.5px; color:var(--muted); }
+    .case-cap { padding: 18px 22px; font-size: 15px; color: var(--muted); line-height: 1.6; }
+    .case-cap strong { color: var(--text); font-weight: 600; }
+    .prova-fecho {
+      margin-top: 28px;
+      padding: 20px 26px;
+      background: rgba(212,175,55,.07);
+      border: 1px solid rgba(212,175,55,.22);
+      border-radius: var(--r-lg);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .prova-fecho-ico { font-size: 26px; flex-shrink: 0; }
+    .prova-fecho p { font-size: 16px; color: var(--text); font-weight: 600; line-height: 1.6; margin: 0; }
 
     /* ── PRICING ───────────────────── */
     .pricing-wrap { max-width:520px; margin:52px auto 0; }
@@ -998,104 +995,46 @@
   </div>
 </section>
 
-<!-- INSTRUCTORS -->
+<!-- SEÇÃO 5 · QUEM ENSINA + PROVA -->
 <section class="instructors">
   <div class="container">
-    <div class="s-tag">Instrutor</div>
-    <h2 class="s-title rev">Quem vai te ensinar</h2>
+    <div class="s-tag">Quem ensina</div>
+    <h2 class="s-title rev">Aprenda com quem constrói pra cliente<br>pagante — e <em style="color:var(--accent)">mostra o que entregou.</em></h2>
     <div class="inst-grid">
-      <div class="inst-card rev d1" style="max-width:560px">
+      <div class="inst-card rev d1">
         <img class="inst-av inst-av-luiz" src="assets/luiz.jpeg" alt="Luiz Bessa" loading="lazy" decoding="async">
         <h3 class="inst-name">Luiz Bessa</h3>
-        <p class="inst-role">Dev de verdade: estudante de Ciência da Computação na UnB, constrói sistemas para clientes</p>
-        <p class="inst-bio">Usa Claude Code todos os dias em projeto pago por cliente: já entregou de robô de atendimento no WhatsApp a plataforma editorial com IA. Estuda Ciência da Computação na UnB, aprende a teoria de manhã e aplica em projeto real à tarde. No Reis do Claude Code, ensina o mesmo caminho que usa no próprio trabalho, em português, começando do zero, sem enrolação.</p>
+        <p class="inst-bio">Luiz Bessa usa Claude Code todos os dias em projeto pago por cliente. Estuda Ciência da Computação na UnB: aprende a teoria de manhã e aplica em projeto real à tarde. No curso, ensina o mesmo caminho que usa no próprio trabalho — em português, começando do zero.</p>
       </div>
     </div>
-    <div class="creds rev">
-      <div class="cred"><span class="ok">✓</span> Projetos reais entregues para clientes</div>
-      <div class="cred"><span class="ok">✓</span> Ciência da Computação (UnB)</div>
-      <div class="cred"><span class="ok">✓</span> Usa Claude Code todos os dias</div>
+    <div class="prova-grid">
+      <!-- [CASE-1] — substituir a área de imagem abaixo pelo print real.
+           Spec (note 01-blueprint, seção 5): print da tela do robô de atendimento
+           no WhatsApp entregue a cliente + 2 linhas de contexto:
+           (1) o que o cliente fazia na mão antes; (2) o que roda sozinho hoje. -->
+      <div class="case-card rev d1">
+        <div class="case-shot"><span class="demo-soon">Print em breve</span></div>
+        <div class="case-cap"><strong>Robô de atendimento no WhatsApp</strong> entregue a cliente</div>
+      </div>
+      <!-- [CASE-2] — substituir a área de imagem abaixo pelo print real.
+           Spec (note 01-blueprint, seção 5): print da tela da plataforma editorial
+           com IA + 2 linhas de contexto:
+           (1) o que foi pedido; (2) o que foi entregue. -->
+      <div class="case-card rev d2">
+        <div class="case-shot"><span class="demo-soon">Print em breve</span></div>
+        <div class="case-cap"><strong>Plataforma editorial com IA</strong></div>
+      </div>
+    </div>
+    <div class="prova-fecho rev">
+      <span class="prova-fecho-ico">👑</span>
+      <p>Os projetos que você constrói no curso são desse tipo — não versão de brinquedo.</p>
     </div>
   </div>
 </section>
 
-<!-- SEÇÃO DEPOIMENTOS — desativada até ter depoimentos reais verificados. Reativar quando houver pelo menos 2-3 depoimentos com nome real, foto real, identificação verificável.
-<section class="testi">
-  <div class="container">
-    <div class="s-tag">Depoimentos</div>
-    <h2 class="s-title rev">O que nossos alunos dizem</h2>
-    <p class="s-sub rev d1">Resultados de quem já aprendeu com o curso</p>
-    <div class="testi-grid">
-      <div class="testi-card rev d1">
-        <div class="stars">★★★★★</div>
-        <p class="testi-txt">"Nunca tinha programado nada na vida. Em dois dias de curso já tinha minha primeira automação rodando e mandando mensagem no WhatsApp. Inacreditável."</p>
-        <div class="testi-author">
-          <div class="testi-av">RC</div>
-          <div>
-            <p class="testi-name">Rafael Costa</p>
-            <p class="testi-meta">Primeiro projeto no ar em 48h</p>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card rev d2">
-        <div class="stars">★★★★★</div>
-        <p class="testi-txt">"Consegui cobrar R$800 de um cliente pelo meu primeiro projeto com Claude Code. O curso se pagou em uma semana. Melhor investimento que já fiz."</p>
-        <div class="testi-author">
-          <div class="testi-av">AM</div>
-          <div>
-            <p class="testi-name">Ana Mendes</p>
-            <p class="testi-meta">Primeiro projeto pago para cliente</p>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card rev d3">
-        <div class="stars">★★★★★</div>
-        <p class="testi-txt">"Eu estava preso tentando usar IA pra construir coisas de verdade. O Luiz explica de um jeito que qualquer pessoa consegue. Economizo 3 horas por dia agora."</p>
-        <div class="testi-author">
-          <div class="testi-av">TS</div>
-          <div>
-            <p class="testi-name">Thiago Souza</p>
-            <p class="testi-meta">Economiza 3h de trabalho por dia</p>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card rev d1">
-        <div class="stars">★★★★★</div>
-        <p class="testi-txt">"Sou designer e não sabia programar. Hoje entrego projetos completos pra clientes com Claude Code. Dobrei meu ticket médio só com isso."</p>
-        <div class="testi-author">
-          <div class="testi-av">MF</div>
-          <div>
-            <p class="testi-name">Marina Ferreira</p>
-            <p class="testi-meta">Designer que passou a entregar código</p>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card rev d2">
-        <div class="stars">★★★★★</div>
-        <p class="testi-txt">"Tentei vários cursos de programação e travei em todos. Aqui foi diferente. Em 4 dias já tinha um site funcionando no ar, com domínio e tudo."</p>
-        <div class="testi-author">
-          <div class="testi-av">PL</div>
-          <div>
-            <p class="testi-name">Pedro Lima</p>
-            <p class="testi-meta">Saiu do zero sem saber programar</p>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card rev d3">
-        <div class="stars">★★★★★</div>
-        <p class="testi-txt">"O Gabriel é referência em automações. Aprendi mais em uma semana com esse curso do que em meses no YouTube. Conteúdo de verdade, feito por quem usa no dia a dia."</p>
-        <div class="testi-author">
-          <div class="testi-av">CB</div>
-          <div>
-            <p class="testi-name">Carla Batista</p>
-            <p class="testi-meta">Automação rodando para o negócio</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
--->
+<!-- [DEPOIMENTOS] — inserir seção de depoimentos aqui quando houver 2–3 reais,
+     com nome, foto e identificação verificável (note 01-blueprint, seção 5).
+     Até lá, a seção de prova fecha nos cases acima. -->
 
 <!-- COMUNIDADE + LIVES -->
 <section class="community">
