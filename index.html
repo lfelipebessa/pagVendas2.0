@@ -540,10 +540,11 @@
     .prova-fecho-ico { font-size: 26px; flex-shrink: 0; }
     .prova-fecho p { font-size: 16px; color: var(--text); font-weight: 600; line-height: 1.6; margin: 0; }
 
-    /* ── PRICING ───────────────────── */
-    .pricing-wrap { max-width:520px; margin:52px auto 0; }
+    /* ── OFERTA ────────────────────── */
+    .oferta { background: var(--surface); }
+    .pricing-wrap { max-width:540px; margin:52px auto 0; }
     .price-card {
-      background: var(--surface);
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
       overflow: hidden;
@@ -553,10 +554,13 @@
       content:''; position:absolute; top:0; left:0; right:0; height:3px;
       background:linear-gradient(90deg,var(--accent),var(--accent-hot));
     }
-    .price-top { padding:36px; text-align:center; border-bottom:1px solid var(--border); }
-    .price-plan { font-family:var(--ff-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
+    .price-top { padding:30px 36px 36px; text-align:center; }
+    .offer-anchor {
+      font-size:15px; color:var(--text); line-height:1.6;
+      max-width:400px; margin:0 auto 22px;
+    }
     .price-val {
-      font-family:var(--ff-display); font-size:64px; font-weight:800;
+      font-family:var(--ff-display); font-size:58px; font-weight:800;
       color:var(--text); letter-spacing:-.04em; line-height:1;
     }
     .price-val .amt {
@@ -566,20 +570,27 @@
     }
     .price-inst { font-family:var(--ff-mono); font-size:13.5px; color:var(--muted); margin-top:10px; }
     .price-inst strong { color:var(--text); font-weight:600; }
-    .price-feats { padding:28px 36px; display:flex; flex-direction:column; gap:12px; }
-    .price-feat { display:flex; align-items:center; gap:11px; font-size:15.5px; color:var(--muted); }
-    .price-feat .ok { color:var(--green); font-size:15px; font-weight:700; flex-shrink:0; }
-    .price-cta { padding:0 36px 36px; }
+    .price-feats { padding:28px 36px; display:flex; flex-direction:column; gap:13px; border-bottom:1px solid var(--border); }
+    .price-feat { display:flex; align-items:flex-start; gap:11px; font-size:15px; color:var(--muted); line-height:1.55; }
+    .price-feat .ok { color:var(--green); font-size:15px; font-weight:700; flex-shrink:0; margin-top:2px; }
     .btn-full {
       display:flex; align-items:center; justify-content:center; gap:11px;
       width:100%; padding:17px 28px;
       background:linear-gradient(160deg, var(--gold-hi) 0%, var(--accent) 55%, var(--gold-deep) 130%); color:#0B0B09;
-      font-family:var(--ff-display); font-weight:800; font-size:17px;
+      font-family:var(--ff-display); font-weight:800; font-size:16px;
       text-decoration:none; border-radius:var(--r); letter-spacing:.01em;
       text-transform:uppercase; transition:background .18s,transform .2s,box-shadow .2s;
+      text-align:center;
     }
     .btn-full:hover { filter:brightness(1.12); transform:translateY(-2px); box-shadow:0 12px 40px rgba(212,175,55,.32); }
-    .price-secure { text-align:center; padding:16px 36px; font-family:var(--ff-mono); font-size:12px; color:var(--muted); border-top:1px solid var(--border); }
+    .transparency {
+      margin-top:20px; padding:20px 24px;
+      background:var(--bg);
+      border:1px solid var(--border);
+      border-left:3px solid var(--accent);
+      border-radius:var(--r-lg);
+    }
+    .transparency p { font-size:14px; color:var(--muted); line-height:1.7; margin:0; }
     .guarantee {
       margin-top:20px; padding:22px 24px;
       background:rgba(82,217,138,.045);
@@ -588,6 +599,30 @@
     }
     .guarantee-title { font-weight:700; font-size:15px; color:var(--green); margin-bottom:6px; }
     .guarantee p { font-size:13.5px; color:var(--muted); line-height:1.55; }
+    .why-now {
+      margin-top:20px; padding:22px 24px;
+      background:var(--bg);
+      border:1px solid var(--border);
+      border-radius:var(--r-lg);
+    }
+    .why-now-label {
+      font-family:var(--ff-mono); font-size:11px; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--accent); margin-bottom:12px;
+    }
+    .why-now ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .why-now li {
+      font-size:14.5px; color:var(--muted); line-height:1.65;
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    .why-now li::before {
+      content:'→'; color:var(--accent); font-family:var(--ff-mono);
+      font-size:12px; flex-shrink:0; margin-top:3px;
+    }
+    .offer-cta { margin-top:28px; }
+    .offer-support {
+      text-align:center; margin-top:14px;
+      font-family:var(--ff-mono); font-size:12px; color:var(--muted);
+    }
 
     /* ── FAQ ───────────────────────── */
     .faq { background:var(--surface); }
@@ -611,87 +646,6 @@
     .faq-item.open .faq-a { max-height:180px; }
     .faq-a-in { padding:0 22px 20px; font-size:15.5px; color:var(--muted); line-height:1.75; }
 
-    /* ── COMMUNITY ─────────────────── */
-    .community { background: var(--bg); }
-    .community-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 52px;
-    }
-    @media(max-width:760px){ .community-grid{ grid-template-columns:1fr; } }
-    .community-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      padding: 32px;
-      position: relative;
-      overflow: hidden;
-      transition: border-color .2s, transform .22s;
-    }
-    .community-card:hover { border-color: rgba(212,175,55,.4); transform: translateY(-3px); }
-    .community-card::before {
-      content:''; position:absolute; top:0; left:0; right:0; height:2px;
-      background: linear-gradient(90deg,var(--accent),var(--accent-hot) 55%,transparent);
-    }
-    .community-card-hd {
-      display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;
-    }
-    .community-ico { font-size: 32px; line-height:1; }
-    .community-badge {
-      font-family: var(--ff-mono); font-size: 9px; letter-spacing:.1em;
-      padding: 3px 10px; border-radius: 100px;
-      background: rgba(82,217,138,.1); border: 1px solid rgba(82,217,138,.25); color: var(--green);
-    }
-    .community-card h3 {
-      font-size: 20px; font-weight: 700; margin-bottom: 12px; line-height: 1.3;
-    }
-    .community-card > p {
-      font-size: 15.5px; color: var(--muted); line-height: 1.75; margin-bottom: 22px;
-    }
-    .community-list {
-      list-style: none; display: flex; flex-direction: column; gap: 10px;
-    }
-    .community-list li {
-      font-size: 14.5px; color: var(--muted); display: flex; gap: 10px;
-      align-items: flex-start; line-height: 1.55;
-    }
-    .community-list li::before {
-      content:'→'; color:var(--accent); font-family:var(--ff-mono); font-size:11px; flex-shrink:0; margin-top:2px;
-    }
-    .community-highlight {
-      margin-top: 28px;
-      padding: 20px 26px;
-      background: rgba(212,175,55,.07);
-      border: 1px solid rgba(212,175,55,.22);
-      border-radius: var(--r-lg);
-      display: flex; align-items: center; gap: 18px;
-    }
-    .community-highlight-ico { font-size: 28px; flex-shrink: 0; }
-    .community-highlight p {
-      font-size: 16px; color: var(--text); font-weight: 600; line-height: 1.6; margin: 0;
-    }
-
-    /* ── FOMO ──────────────────────── */
-    .fomo { background: var(--surface); }
-    .fomo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
-      gap: 20px;
-      margin-top: 52px;
-    }
-    .fomo-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      padding: 28px;
-      transition: border-color .2s, transform .22s;
-    }
-    .fomo-card:hover { border-color: rgba(212,175,55,.36); transform: translateY(-3px); }
-    .fomo-card-ico { font-size: 26px; margin-bottom: 14px; line-height: 1; }
-    .fomo-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
-    .fomo-card p { font-size: 15px; color: var(--muted); line-height: 1.65; margin:0; }
-
     /* ── PROB SUBTITLE / VIRADA ────── */
     .prob-sub { font-size:17px; color: var(--muted); margin-top: 8px; margin-bottom:0; max-width:560px; line-height:1.7; }
     .virada {
@@ -705,66 +659,6 @@
     }
     .virada p { font-size: 16.5px; color: var(--text); line-height: 1.8; margin: 0; }
     @media(max-width:720px){ .virada { padding: 22px 22px; } }
-
-    /* ── PRICING CONTEXT ────────────── */
-    .price-context {
-      text-align: center; max-width:520px; margin: 0 auto 28px;
-      font-size: 15.5px; color: var(--muted); line-height: 1.7;
-    }
-    .price-launch {
-      text-align: center; margin: 16px 36px 0;
-      font-family: var(--ff-mono); font-size: 13px; color: var(--accent-hot);
-    }
-    .price-subtitle {
-      text-align: center; font-size: 18px; color: var(--muted); margin-bottom: 8px;
-    }
-
-    /* ── VALUE STACK ───────────────── */
-    .value-stack {
-      max-width: 520px; margin: 0 auto 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      overflow: hidden;
-    }
-    .value-stack-label {
-      font-family: var(--ff-mono); font-size: 10px; letter-spacing:.1em;
-      text-transform: uppercase; color: var(--accent);
-      padding: 12px 20px; background: var(--surface-2);
-      border-bottom: 1px solid var(--border);
-    }
-    .value-stack-items { padding: 8px 0; }
-    .value-item {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 20px; gap: 12px;
-      border-bottom: 1px solid rgba(212,175,55,.06);
-    }
-    .value-item:last-child { border-bottom: none; }
-    .value-item-name { font-size: 14px; color: var(--muted); }
-    .value-item-price { font-family: var(--ff-mono); font-size: 13px; color: var(--muted); white-space: nowrap; }
-    .value-item-total { background: rgba(255,255,255,.02); }
-    .value-item-total .value-item-name { font-weight: 600; color: var(--text); font-size: 14.5px; }
-    .value-crossed { text-decoration: line-through; opacity:.5; }
-    .value-item-you-pay {
-      background: rgba(212,175,55,.07);
-      border-top: 1px solid rgba(212,175,55,.18) !important;
-    }
-    .value-item-you-pay .value-item-name { font-weight: 700; color: var(--text); font-size: 15px; }
-    .value-you-pay-price { color: var(--accent) !important; font-size: 18px !important; font-weight: 700; }
-
-    /* ── FEAT BADGE ────────────────── */
-    .feat-badge {
-      display: inline-flex; align-items: center;
-      padding: 1px 7px; margin-left: 6px;
-      background: rgba(212,175,55,.15);
-      border: 1px solid rgba(212,175,55,.3);
-      border-radius: 100px;
-      font-family: var(--ff-mono); font-size: 9px;
-      letter-spacing: .08em; color: var(--accent);
-      vertical-align: middle;
-    }
-    .price-feat-new { color: var(--text) !important; }
-    .price-feat-new .ok { color: var(--accent) !important; }
 
     /* ── FINAL CTA ─────────────────── */
     .final { text-align:center; padding:112px 0; position:relative; overflow:hidden; }
@@ -1036,110 +930,49 @@
      com nome, foto e identificação verificável (note 01-blueprint, seção 5).
      Até lá, a seção de prova fecha nos cases acima. -->
 
-<!-- COMUNIDADE + LIVES -->
-<section class="community">
+<!-- SEÇÃO 6 · OFERTA COMPLETA -->
+<section id="pricing" class="oferta">
   <div class="container">
-    <div class="s-tag">Mais do que um curso</div>
-    <h2 class="s-title rev">Você não vai aprender sozinho.<br>Você vai <em style="color:var(--accent)">evoluir junto.</em></h2>
-    <p class="s-sub rev d1" style="max-width:640px">O Reis do Claude Code nasceu como comunidade no WhatsApp, e continua sendo. Quem entra no curso entra pro grupo de quem está construindo, com atenção pessoal do Luiz.</p>
-    <div class="community-grid">
-      <div class="community-card rev d1">
-        <div class="community-card-hd">
-          <span class="community-ico">💬</span>
-          <span class="community-badge">INCLUSO</span>
-        </div>
-        <h3>Comunidade Reis do Claude Code no WhatsApp</h3>
-        <p>O grupo que dá nome ao curso: empreendedores construindo as próprias soluções, trocando projetos e destravando juntos. Você não fica sozinho com a dúvida.</p>
-        <ul class="community-list">
-          <li>Tire dúvidas com quem já passou pelo mesmo problema</li>
-          <li>Mostre o que está construindo e receba feedback de verdade</li>
-          <li>Network com outros donos de negócio usando IA no dia a dia</li>
-        </ul>
-      </div>
-      <div class="community-card rev d2">
-        <div class="community-card-hd">
-          <span class="community-ico">📲</span>
-          <span class="community-badge">INCLUSO</span>
-        </div>
-        <h3>Atenção pessoal do Luiz</h3>
-        <p>Quem compra não vira número. O Luiz acompanha a comunidade de perto: responde dúvidas, olha projetos e aponta o caminho de quem está construindo.</p>
-        <ul class="community-list">
-          <li>Respostas de quem usa Claude Code todo dia em projeto de cliente</li>
-          <li>Feedback no que você está construindo</li>
-          <li>Sem robô de suporte: é o Luiz mesmo</li>
-        </ul>
-      </div>
-    </div>
-    <div class="community-highlight rev d3">
-      <span class="community-highlight-ico">👑</span>
-      <p>Reis do Claude Code é o grupo de quem constrói. O curso é o caminho. A comunidade é onde você não trava sozinho.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FOMO -->
-<section class="fomo">
-  <div class="container">
-    <div class="s-tag">Por que agora</div>
-    <h2 class="s-title rev">Por que aprender isso agora<br>e não depois?</h2>
-    <div class="fomo-grid">
-      <div class="fomo-card rev d1">
-        <div class="fomo-card-ico">🌅</div>
-        <h4>Claude Code ainda é território de quem chega cedo</h4>
-        <p>ChatGPT todo mundo já usa. IA que executa e constrói, quase ninguém. Quem aprende agora constrói antes, e aprende com calma, enquanto é vantagem e não obrigação.</p>
-      </div>
-      <div class="fomo-card rev d2">
-        <div class="fomo-card-ico">⏱️</div>
-        <h4>Cada processo automatizado é tempo que volta</h4>
-        <p>O orçamento que se monta sozinho, o cliente respondido na hora, o follow-up que não depende de você lembrar. O retorno começa na primeira automação que você coloca no ar.</p>
-      </div>
-      <div class="fomo-card rev d3">
-        <div class="fomo-card-ico">🔓</div>
-        <h4>Autonomia técnica destrava o negócio</h4>
-        <p>A ideia deixa de esperar orçamento de terceiro. Você testa, ajusta e coloca no ar no mesmo dia. A decisão volta pra sua mão.</p>
-      </div>
-      <div class="fomo-card rev d4">
-        <div class="fomo-card-ico">♾️</div>
-        <h4>Aprende uma vez, usa pra sempre</h4>
-        <p>O curso vive atualizado, mas o principal fica com você pra sempre: a habilidade de construir. Cada sistema novo sai mais rápido que o anterior.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing">
-  <div class="container">
-    <div class="s-tag" style="justify-content:center">Investimento</div>
-    <h2 class="s-title rev" style="text-align:center">Acesso completo ao<br>curso por</h2>
-    <p class="price-subtitle rev d1">O primeiro degrau, acessível de propósito.</p>
-    <p class="price-context rev d2">O preço é baixo por decisão, não porque o conteúdo é raso: o objetivo é que o máximo de gente construa o primeiro sistema. Qualquer automação simples terceirizada custa várias vezes isso. Aqui você aprende a construir a sua, e a habilidade fica com você.</p>
+    <div class="s-tag" style="justify-content:center">A oferta</div>
+    <h2 class="s-title rev" style="text-align:center">Tudo que você leva pra construir<br>o <em style="color:var(--accent)">primeiro sistema</em></h2>
     <div class="pricing-wrap">
       <div class="price-card rev">
-        <div class="price-top">
-          <p class="price-plan">Reis do Claude Code · Acesso Anual</p>
-          <p class="price-val">12x <span class="amt">R$9</span></p>
-          <p class="price-inst">ou <strong>R$87</strong> à vista pelo ano</p>
-        </div>
         <div class="price-feats">
-          <div class="price-feat"><span class="ok">✓</span> 4 módulos completos, do zero ao sistema no ar</div>
-          <div class="price-feat"><span class="ok">✓</span> Projetos práticos do início ao funcionando</div>
-          <div class="price-feat"><span class="ok">✓</span> Um ano de acesso a todo o conteúdo</div>
-          <div class="price-feat"><span class="ok">✓</span> Atualizações incluídas sem custo</div>
-          <div class="price-feat price-feat-new"><span class="ok">✓</span> <span>Comunidade Reis do Claude Code no WhatsApp</span></div>
-          <div class="price-feat price-feat-new"><span class="ok">✓</span> <span>Atenção pessoal do Luiz na comunidade</span></div>
-          <div class="price-feat"><span class="ok">✓</span> Bônus: economizar nas assinaturas de IA</div>
-          <div class="price-feat"><span class="ok">✓</span> Bônus: player de vídeo próprio</div>
-          <div class="price-feat"><span class="ok">✓</span> Bônus: prompt de acabamento pra páginas de venda</div>
+          <div class="price-feat"><span class="ok">✓</span> <span>Curso completo: 4 módulos, do zero ao sistema no ar</span></div>
+          <div class="price-feat"><span class="ok">✓</span> <span>Comunidade Reis do Claude Code no WhatsApp — o grupo que dá nome ao curso: você constrói acompanhado, sem travar sozinho</span></div>
+          <div class="price-feat"><span class="ok">✓</span> <span>Atenção pessoal do Luiz — quem responde é ele, não robô de suporte</span></div>
+          <div class="price-feat"><span class="ok">✓</span> <span>Bônus: como pagar menos nas assinaturas de IA</span></div>
+          <div class="price-feat"><span class="ok">✓</span> <span>Bônus: player de vídeo próprio</span></div>
+          <div class="price-feat"><span class="ok">✓</span> <span>Bônus: prompt de acabamento pra páginas de venda</span></div>
+          <div class="price-feat"><span class="ok">✓</span> <span>Um ano de acesso, com todas as atualizações do período</span></div>
         </div>
-        <div class="price-cta">
-          <a href="https://pay.kiwify.com.br/pvRX1Ts" class="btn-full" target="_blank" rel="noopener noreferrer">QUERO ENTRAR AGORA →</a>
+        <div class="price-top">
+          <p class="offer-anchor">Terceirizar UMA automação simples custa mais do que tudo isso junto por um ano.</p>
+          <p class="price-val">12x de <span class="amt">R$9</span></p>
+          <p class="price-inst">ou <strong>R$87</strong> à vista pelo ano inteiro</p>
         </div>
-        <div class="price-secure">🔒 Pagamento 100% seguro via Kiwify</div>
+      </div>
+      <div class="transparency rev d1">
+        <p>Pra praticar, você vai precisar da assinatura do Claude, paga à Anthropic — cerca de US$20 por mês no plano de entrada, separada do curso. Um dos bônus ensina a gastar menos com isso. Mesmo somando curso e assinatura, o ano completo sai por menos que um único orçamento de agência.</p>
       </div>
       <div class="guarantee rev d1">
-        <p class="guarantee-title">🛡️ 7 dias de garantia total</p>
-        <p>Não gostou por qualquer motivo? Basta pedir o reembolso. Sem perguntas, sem burocracia.</p>
+        <p class="guarantee-title">🛡️ 7 dias pra testar tudo por dentro.</p>
+        <p>Não gostou, pede reembolso e devolvemos 100% — sem perguntas.</p>
+      </div>
+      <div class="why-now rev d2">
+        <p class="why-now-label">Por que agora</p>
+        <ul>
+          <li>Cada processo automatizado é tempo que volta: o retorno começa na primeira automação que você coloca no ar.</li>
+          <li>Claude Code ainda é território de quem chega cedo — quem aprende agora constrói antes, com calma.</li>
+          <!-- [MECANISMO-REAL] — terceiro bullet de "Por que agora", NÃO renderizado.
+               Decidir com o usuário (note 01-blueprint, seção 6): preço de fundação
+               que sobe / bônus com prazo / turma com data. Se nenhum for verdadeiro,
+               este bullet fica de fora: urgência inventada custa mais caro que nenhuma. -->
+        </ul>
+      </div>
+      <div class="offer-cta rev d2">
+        <a href="https://pay.kiwify.com.br/pvRX1Ts" class="btn-full" target="_blank" rel="noopener noreferrer">QUERO CONSTRUIR MEU PRIMEIRO SISTEMA →</a>
+        <p class="offer-support">🔒 Pagamento seguro via Kiwify · acesso imediato após a confirmação</p>
       </div>
     </div>
   </div>
