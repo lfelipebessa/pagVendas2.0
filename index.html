@@ -624,8 +624,8 @@
       font-family:var(--ff-mono); font-size:12px; color:var(--muted);
     }
 
-    /* ── FAQ ───────────────────────── */
-    .faq { background:var(--surface); }
+    /* ── FAQ + FECHAMENTO ──────────── */
+    .faq { background:var(--bg); }
     .faq-list { max-width:700px; margin:52px auto 0; display:flex; flex-direction:column; gap:2px; }
     .faq-item { background:var(--bg); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; }
     .faq-q {
@@ -643,7 +643,7 @@
     }
     .faq-item.open .faq-plus { transform:rotate(45deg); }
     .faq-a { max-height:0; overflow:hidden; transition:max-height .32s ease; }
-    .faq-item.open .faq-a { max-height:180px; }
+    .faq-item.open .faq-a { max-height:320px; }
     .faq-a-in { padding:0 22px 20px; font-size:15.5px; color:var(--muted); line-height:1.75; }
 
     /* ── PROB SUBTITLE / VIRADA ────── */
@@ -660,19 +660,34 @@
     .virada p { font-size: 16.5px; color: var(--text); line-height: 1.8; margin: 0; }
     @media(max-width:720px){ .virada { padding: 22px 22px; } }
 
-    /* ── FINAL CTA ─────────────────── */
-    .final { text-align:center; padding:112px 0; position:relative; overflow:hidden; }
-    .final::before {
-      content:''; position:absolute; bottom:-180px; left:50%; transform:translateX(-50%);
-      width:560px; height:560px;
-      background:radial-gradient(circle at 50% 75%,rgba(237,52,25,.06) 0%,transparent 55%),radial-gradient(circle,rgba(212,175,55,.10) 0%,transparent 70%);
+    /* ── FECHAMENTO ────────────────── */
+    .closing {
+      position: relative;
+      text-align: center;
+      margin-top: 104px;
+      padding: 56px 0 32px;
+    }
+    .closing::before {
+      content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+      width:64px; height:2px;
+      background:linear-gradient(90deg,var(--accent-hot),var(--accent));
+    }
+    .closing::after {
+      content:''; position:absolute; bottom:-160px; left:50%; transform:translateX(-50%);
+      width:560px; height:420px; z-index:-1;
+      background:radial-gradient(ellipse at 50% 60%,rgba(212,175,55,.09) 0%,transparent 70%);
       pointer-events:none;
     }
-    .final .s-sub { margin:0 auto 36px; }
-    .urgency {
-      display:inline-flex; align-items:center; gap:7px; margin-top:22px;
-      font-family:var(--ff-mono); font-size:12.5px; color:var(--accent-hot);
+    .closing p {
+      font-family: var(--ff-display);
+      font-size: clamp(18px,2.2vw,23px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.5;
+      max-width: 760px;
+      margin: 0 auto 10px;
     }
+    .closing-cta { margin-top: 30px; font-size:16px; }
 
     /* ── FOOTER ────────────────────── */
     footer {
@@ -978,60 +993,46 @@
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- SEÇÃO 7 · FAQ + FECHAMENTO -->
 <section class="faq">
   <div class="container">
     <div class="s-tag" style="justify-content:center">Dúvidas</div>
-    <h2 class="s-title rev" style="text-align:center">Perguntas frequentes</h2>
+    <h2 class="s-title rev" style="text-align:center">O que você ainda quer saber</h2>
     <div class="faq-list">
       <div class="faq-item rev">
-        <div class="faq-q"><span>Precisa saber programar para fazer esse curso?</span><span class="faq-plus">+</span></div>
-        <div class="faq-a"><p class="faq-a-in">Não. O curso foi feito do zero para quem nunca programou. Se você sabe ligar o computador e navegar na internet, você consegue acompanhar.</p></div>
+        <div class="faq-q"><span>Preciso saber programar?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p class="faq-a-in">Não. O curso começa do zero absoluto. Se você liga o computador e navega na internet, acompanha.</p></div>
       </div>
       <div class="faq-item rev d1">
-        <div class="faq-q"><span>Quando recebo acesso?</span><span class="faq-plus">+</span></div>
-        <div class="faq-a"><p class="faq-a-in">Imediatamente após a confirmação do pagamento. Você já pode começar hoje.</p></div>
+        <div class="faq-q"><span>Quanto tempo por semana isso exige?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p class="faq-a-in">Você define o ritmo: as aulas são gravadas e ficam disponíveis o ano todo. No primeiro dia já dá pra deixar o Claude rodando na sua máquina.</p></div>
       </div>
       <div class="faq-item rev d2">
-        <div class="faq-q"><span>Por quanto tempo terei acesso?</span><span class="faq-plus">+</span></div>
-        <div class="faq-a"><p class="faq-a-in">O acesso é anual: R$87 valem por um ano completo de curso, comunidade e todas as atualizações do período. Chegando perto de vencer, você decide se renova.</p></div>
+        <div class="faq-q"><span>Por quanto tempo tenho acesso — e se eu não gostar?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p class="faq-a-in">R$87 valem por um ano de curso, comunidade e atualizações — chegando perto de vencer, você decide se renova. Os primeiros 7 dias são de teste: não gostou, pede reembolso e devolvemos 100%.</p></div>
       </div>
       <div class="faq-item rev d3">
-        <div class="faq-q"><span>Funciona no Mac e Windows?</span><span class="faq-plus">+</span></div>
-        <div class="faq-a"><p class="faq-a-in">Sim. O curso cobre a instalação e configuração nos dois sistemas operacionais.</p></div>
+        <div class="faq-q"><span>Funciona no Mac e no Windows?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p class="faq-a-in">Sim. O curso cobre a instalação e a configuração nos dois.</p></div>
       </div>
       <div class="faq-item rev d1">
-        <div class="faq-q"><span>Como funciona a garantia?</span><span class="faq-plus">+</span></div>
-        <div class="faq-a"><p class="faq-a-in">Você tem 7 dias para testar o curso completo. Se não gostar por qualquer motivo, basta mandar uma mensagem e devolvemos 100% do valor. Sem perguntas.</p></div>
-      </div>
-      <div class="faq-item rev d2">
         <div class="faq-q"><span>Tem aula ao vivo?</span><span class="faq-plus">+</span></div>
-        <div class="faq-a"><p class="faq-a-in">Não. As aulas são gravadas, pra você assistir no seu ritmo e voltar quantas vezes quiser. As dúvidas acontecem na comunidade do WhatsApp, sem depender de horário marcado.</p></div>
-      </div>
-      <div class="faq-item rev d3">
-        <div class="faq-q"><span>Preciso pagar mais alguma coisa além do curso?</span><span class="faq-plus">+</span></div>
-        <div class="faq-a"><p class="faq-a-in">O Claude é uma ferramenta da Anthropic e tem assinatura própria, separada do curso. Por transparência: você vai precisar dela pra praticar, e um dos bônus ensina como pagar menos nas assinaturas de IA.</p></div>
+        <div class="faq-a"><p class="faq-a-in">Não: aulas gravadas, no seu ritmo. As dúvidas acontecem na comunidade do WhatsApp, sem horário marcado.</p></div>
       </div>
       <div class="faq-item rev d2">
-        <div class="faq-q"><span>Vou conseguir aplicar no meu negócio?</span><span class="faq-plus">+</span></div>
-        <div class="faq-a"><p class="faq-a-in">Sim, o curso foi desenhado pra isso. Os projetos são o tipo de coisa que negócio usa de verdade: atendimento, automação, site. Você pode ir construindo a versão do seu negócio já durante as aulas.</p></div>
+        <div class="faq-q"><span>Serve pro MEU negócio?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p class="faq-a-in">Os projetos do curso são o que negócio usa de verdade: atendimento, orçamento, site, automação. Você constrói a sua versão já durante as aulas.</p></div>
       </div>
       <div class="faq-item rev d3">
-        <div class="faq-q"><span>Não é tarde demais para aprender Claude Code?</span><span class="faq-plus">+</span></div>
-        <div class="faq-a"><p class="faq-a-in">É o contrário: no Brasil, quase ninguém usa Claude Code ainda, e fora do mundo dev menos ainda. Aprender agora é aprender com calma, enquanto é vantagem e não obrigação. O curso é o primeiro degrau desse caminho.</p></div>
+        <div class="faq-q"><span>Não é tarde demais pra aprender?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p class="faq-a-in">É cedo. Fora do mundo dev, quase ninguém no Brasil usa Claude Code. Aprender agora é aprender com calma, enquanto é vantagem — não obrigação.</p></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final">
-  <div class="container">
-    <div class="s-tag" style="justify-content:center">O primeiro degrau</div>
-    <h2 class="s-title rev">O primeiro sistema do seu negócio<br>pode começar <em style="color:var(--accent)">hoje</em>.</h2>
-    <p class="s-sub rev d1">Você já sabe o que te toma horas toda semana. O caminho pra transformar isso em sistema está aqui: em português, do zero, com quem constrói pra cliente todos os dias. Entra, faz o módulo 1 e vê o Claude rodando na sua máquina ainda hoje. Se não for pra você, a garantia de 7 dias devolve tudo.</p>
-    <div class="rev d2">
-      <a href="https://pay.kiwify.com.br/pvRX1Ts" class="btn-primary" style="font-size:17px;padding:16px 38px" target="_blank" rel="noopener noreferrer">QUERO ENTRAR AGORA →</a>
+    <div class="closing rev">
+      <p>Você já sabe o que te toma horas toda semana.</p>
+      <p>Aqui está o caminho pra transformar isso em sistema: em português, do zero, com 7 dias de garantia.</p>
+      <p>Entra, faz o módulo 1 e termina o dia com o Claude rodando na sua máquina.</p>
+      <a href="https://pay.kiwify.com.br/pvRX1Ts" class="btn-primary closing-cta" target="_blank" rel="noopener noreferrer">QUERO CONSTRUIR MEU PRIMEIRO SISTEMA →</a>
     </div>
   </div>
 </section>
