@@ -554,13 +554,18 @@
       content:''; position:absolute; top:0; left:0; right:0; height:3px;
       background:linear-gradient(90deg,var(--accent),var(--accent-hot));
     }
-    .price-top { padding:30px 36px 26px; text-align:center; }
     .offer-anchor {
-      font-size:15px; color:var(--text); line-height:1.6;
-      max-width:400px; margin:0 auto 22px;
+      text-align:center; font-size:15px; color:var(--muted); line-height:1.6;
+      max-width:440px; margin:0 auto 22px;
     }
+    .price-hd { padding:34px 36px 28px; text-align:center; }
+    .price-title {
+      font-family:var(--ff-display); font-weight:800; font-size:19px;
+      color:var(--text); letter-spacing:-.02em; margin-bottom:16px;
+    }
+    .price-title b { color:var(--accent); }
     .price-val {
-      font-family:var(--ff-display); font-size:58px; font-weight:800;
+      font-family:var(--ff-display); font-size:68px; font-weight:800;
       color:var(--text); letter-spacing:-.04em; line-height:1;
     }
     .price-val .amt {
@@ -569,10 +574,23 @@
       color:var(--accent); -webkit-text-fill-color:transparent;
     }
     .price-inst { font-family:var(--ff-mono); font-size:13.5px; color:var(--muted); margin-top:10px; }
-    .price-inst strong { color:var(--text); font-weight:600; }
-    .price-feats { padding:28px 36px; display:flex; flex-direction:column; gap:13px; border-bottom:1px solid var(--border); }
-    .price-feat { display:flex; align-items:flex-start; gap:11px; font-size:15px; color:var(--muted); line-height:1.55; }
-    .price-feat .ok { color:var(--green); font-size:15px; font-weight:700; flex-shrink:0; margin-top:2px; }
+    .price-feats {
+      padding:26px 36px 28px; display:flex; flex-direction:column; gap:14px;
+      border-top:1px solid var(--border);
+    }
+    .price-incl-label {
+      font-family:var(--ff-mono); font-size:11px; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--accent); margin-bottom:2px;
+    }
+    .price-feat { display:flex; align-items:flex-start; gap:12px; font-size:15px; color:var(--muted); line-height:1.55; }
+    .price-feat strong { color:var(--text); font-weight:600; }
+    .price-feat .ok {
+      width:22px; height:22px; border-radius:50%; flex-shrink:0; margin-top:1px;
+      border:1px solid rgba(212,175,55,.45); background:rgba(212,175,55,.10);
+      color:var(--accent); font-size:12px; font-weight:700;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .price-feat .gift { width:22px; flex-shrink:0; text-align:center; font-size:16px; line-height:1.4; }
     .btn-full {
       display:flex; align-items:center; justify-content:center; gap:11px;
       width:100%; padding:17px 28px;
@@ -618,11 +636,12 @@
       content:'→'; color:var(--accent); font-family:var(--ff-mono);
       font-size:12px; flex-shrink:0; margin-top:3px;
     }
-    .price-cta { padding: 0 36px 32px; }
+    .price-cta { padding: 2px 36px 30px; }
     .offer-support {
       text-align:center; margin-top:12px;
-      font-family:var(--ff-mono); font-size:12px; color:var(--muted);
+      font-family:var(--ff-mono); font-size:11.5px; color:var(--muted);
     }
+    .offer-support span { white-space:nowrap; }
 
     /* ── FAQ + FECHAMENTO ──────────── */
     .faq { background:var(--bg); }
@@ -734,7 +753,7 @@
     }
     @media(max-width:440px){
       .hero h1 { font-size:42px; }
-      .price-val { font-size:44px; }
+      .price-val { font-size:56px; }
       .nav-logo { font-size:12px; }
     }
     @media(prefers-reduced-motion:reduce){
@@ -949,24 +968,27 @@
     <div class="s-tag" style="justify-content:center">A oferta</div>
     <h2 class="s-title rev" style="text-align:center">Tudo que você leva pra construir <br>o <em style="color:var(--accent)">primeiro sistema</em></h2>
     <div class="pricing-wrap">
+      <p class="offer-anchor rev d1">Terceirizar UMA automação simples custa mais do que tudo isso junto por um ano.</p>
       <div class="price-card rev">
-        <div class="price-feats">
-          <div class="price-feat"><span class="ok">✓</span> <span>Curso completo: 4 módulos, do zero ao sistema no ar</span></div>
-          <div class="price-feat"><span class="ok">✓</span> <span>Comunidade Reis do Claude Code no WhatsApp — o grupo que dá nome ao curso: você constrói acompanhado, sem travar sozinho</span></div>
-          <div class="price-feat"><span class="ok">✓</span> <span>Atenção pessoal do Luiz — quem responde é ele, não robô de suporte</span></div>
-          <div class="price-feat"><span class="ok">✓</span> <span>Bônus: como pagar menos nas assinaturas de IA</span></div>
-          <div class="price-feat"><span class="ok">✓</span> <span>Bônus: player de vídeo próprio</span></div>
-          <div class="price-feat"><span class="ok">✓</span> <span>Bônus: prompt de acabamento pra páginas de venda</span></div>
-          <div class="price-feat"><span class="ok">✓</span> <span>Um ano de acesso, com todas as atualizações do período</span></div>
+        <div class="price-hd">
+          <p class="price-title">Reis do <b>Claude Code</b></p>
+          <p class="price-val"><span class="amt">R$87</span></p>
+          <p class="price-inst">ou 12x de R$9 · acesso por um ano</p>
         </div>
-        <div class="price-top">
-          <p class="offer-anchor">Terceirizar UMA automação simples custa mais do que tudo isso junto por um ano.</p>
-          <p class="price-val">12x de <span class="amt">R$9</span></p>
-          <p class="price-inst">ou <strong>R$87</strong> à vista pelo ano inteiro</p>
+        <div class="price-feats">
+          <p class="price-incl-label">O que está incluso</p>
+          <div class="price-feat"><span class="ok">✓</span> <span><strong>Curso completo:</strong> 4 módulos, do zero ao sistema no ar</span></div>
+          <div class="price-feat"><span class="ok">✓</span> <span><strong>Comunidade no WhatsApp:</strong> o grupo que dá nome ao curso, você constrói acompanhado</span></div>
+          <div class="price-feat"><span class="ok">✓</span> <span><strong>Atenção pessoal do Luiz:</strong> quem responde é ele, não robô de suporte</span></div>
+          <div class="price-feat"><span class="ok">✓</span> <span><strong>Um ano de acesso:</strong> com todas as atualizações do período</span></div>
+          <!-- SEM preço riscado nos bônus até o usuário fornecer valores reais (note 01-blueprint, seção 6): âncora inventada não entra. -->
+          <div class="price-feat"><span class="gift">🎁</span> <span><strong>Bônus 1:</strong> como pagar menos nas assinaturas de IA</span></div>
+          <div class="price-feat"><span class="gift">🎁</span> <span><strong>Bônus 2:</strong> player de vídeo próprio</span></div>
+          <div class="price-feat"><span class="gift">🎁</span> <span><strong>Bônus 3:</strong> prompt de acabamento pra páginas de venda</span></div>
         </div>
         <div class="price-cta">
           <a href="https://pay.kiwify.com.br/pvRX1Ts" class="btn-full" target="_blank" rel="noopener noreferrer">QUERO CONSTRUIR MEU PRIMEIRO SISTEMA →</a>
-          <p class="offer-support">🔒 Pagamento seguro via Kiwify · acesso imediato após a confirmação</p>
+          <p class="offer-support"><span>💳 Cartão ou PIX</span> · <span>🔒 Pagamento seguro via Kiwify</span> · <span>↩ Garantia 7 dias</span></p>
         </div>
       </div>
       <div class="transparency rev d1">
