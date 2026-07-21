@@ -469,6 +469,14 @@
     .mod-list li::before { content:'→'; color:var(--accent); font-family:var(--ff-mono); font-size:11px; flex-shrink:0; margin-top:3px; }
     .mod-bonus { background:linear-gradient(135deg,rgba(212,175,55,.07),rgba(212,175,55,.02)); border-color:rgba(212,175,55,.22); }
     .mod-bonus .mod-num { color:rgba(212,175,55,.14); }
+    .mod-card { display:flex; flex-direction:column; }
+    .mod-done {
+      margin-top:auto; padding-top:16px;
+      border-top:1px dashed rgba(212,175,55,.28);
+      font-size:14.5px; color:var(--muted); line-height:1.55;
+    }
+    .mod-done strong { color:var(--accent); font-weight:600; display:block; margin-bottom:2px; }
+    .mod-list { margin-bottom:18px; }
 
     /* ── INSTRUCTORS ───────────────── */
     .inst-grid {
@@ -944,54 +952,47 @@
   </div>
 </section>
 
-<!-- MODULES -->
+<!-- SEÇÃO 4 · O CAMINHO -->
 <section class="modules">
   <div class="container">
-    <div class="s-tag">Conteúdo</div>
-    <h2 class="s-title rev">O que você vai aprender</h2>
-    <p class="s-sub rev d1">4 módulos práticos: cada um termina com algo construído</p>
+    <div class="s-tag">O caminho</div>
+    <h2 class="s-title rev">Quatro módulos. Cada um termina<br>com <em style="color:var(--accent)">algo construído.</em></h2>
     <div class="mod-grid">
       <div class="mod-card rev d1">
         <div class="mod-num">01</div>
         <h3 class="mod-title">Do zero ao Claude <em>rodando</em> na sua máquina</h3>
         <ul class="mod-list">
-          <li>O que é o Claude Code e o que dá pra construir com ele</li>
-          <li>Instalando tudo passo a passo, mesmo que você nunca tenha aberto um terminal</li>
-          <li>O básico de inglês que aparece pelo caminho</li>
-          <li>Sites e ferramentas que você vai usar no curso</li>
-          <li>Você termina com: o Claude instalado e respondendo na sua máquina</li>
+          <li>Instalação passo a passo, mesmo que você nunca tenha aberto um terminal</li>
+          <li>O que dá pra construir com o Claude Code, com exemplos de negócio de verdade</li>
         </ul>
+        <p class="mod-done"><strong>Você termina com:</strong> o Claude instalado e respondendo na sua máquina</p>
       </div>
       <div class="mod-card rev d2">
         <div class="mod-num">02</div>
         <h3 class="mod-title">Seu primeiro projeto <em>no ar</em></h3>
         <ul class="mod-list">
-          <li>Começando um projeto do zero, do jeito certo</li>
-          <li>Como dar instruções que o Claude entende e executa</li>
-          <li>Construindo algo real do início ao funcionando</li>
-          <li>Salvando tudo com segurança (o famoso Git, sem complicação)</li>
-          <li>Você termina com: seu projeto publicado na internet</li>
+          <li>Como dar instruções que o Claude entende e executa do jeito certo</li>
+          <li>Do início ao funcionando, salvando tudo com segurança (o famoso Git, sem complicação)</li>
         </ul>
+        <p class="mod-done"><strong>Você termina com:</strong> seu projeto publicado na internet</p>
       </div>
       <div class="mod-card rev d3">
         <div class="mod-num">03</div>
         <h3 class="mod-title">O Claude conectado ao <em>seu negócio</em></h3>
         <ul class="mod-list">
-          <li>Conectando o Claude às ferramentas que você já usa, tipo Drive e planilha</li>
-          <li>Deixando seus projetos com cara de profissional</li>
-          <li>Como planejar um sistema antes de construir (e errar menos)</li>
-          <li>Clonando e adaptando projetos que já funcionam</li>
-          <li>Você termina com: o Claude trabalhando junto com as suas ferramentas</li>
+          <li>Conectando o Claude às ferramentas que você já usa, como Drive e planilha</li>
+          <li>Como planejar um sistema antes de construir — e adaptar projetos que já funcionam</li>
         </ul>
+        <p class="mod-done"><strong>Você termina com:</strong> o Claude trabalhando junto das suas ferramentas</p>
       </div>
       <div class="mod-card mod-bonus rev d4">
         <div class="mod-num">04</div>
         <h3 class="mod-title">🎁 <em>Bônus</em></h3>
         <ul class="mod-list">
           <li>Como pagar menos nas assinaturas de IA</li>
-          <li>Como criar seu player de vídeo próprio</li>
-          <li>Prompt de acabamento pra deixar sua página de vendas com cara profissional</li>
+          <li>Player de vídeo próprio + prompt de acabamento pra deixar suas páginas profissionais</li>
         </ul>
+        <p class="mod-done"><strong>Você termina com:</strong> seu player de vídeo próprio no ar</p>
       </div>
     </div>
   </div>
