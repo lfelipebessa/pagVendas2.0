@@ -514,13 +514,42 @@
     .inst-bio { font-size:15.5px; color:var(--muted); line-height:1.7; }
 
     /* ── PROVA (CASES) ─────────────── */
-    .prova-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 28px;
+    /* Carrossel de cases (prova social) */
+    .prova-rail { position: relative; margin-top: 34px; }
+    .prova-track {
+      display: flex; gap: 20px;
+      overflow-x: auto; overflow-y: hidden;
+      scroll-snap-type: x mandatory; scroll-behavior: smooth;
+      scrollbar-width: none; -webkit-overflow-scrolling: touch;
+      padding: 4px 2px 8px;
     }
-    @media(max-width:660px){ .prova-grid { grid-template-columns:1fr; } }
+    .prova-track::-webkit-scrollbar { display: none; }
+    .prova-track > .case-card { flex: 0 0 min(85vw, 400px); scroll-snap-align: start; }
+    @media(min-width: 768px){ .prova-track > .case-card { flex-basis: clamp(400px, 40%, 460px); } }
+    .prova-rail::before, .prova-rail::after {
+      content: ''; position: absolute; top: 0; bottom: 32px; width: 54px;
+      pointer-events: none; z-index: 2; opacity: 0; transition: opacity .25s;
+    }
+    .prova-rail::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+    .prova-rail::after { right: 0; background: linear-gradient(270deg, var(--bg), transparent); }
+    .prova-rail.can-left::before { opacity: 1; }
+    .prova-rail.can-right::after { opacity: 1; }
+    .rail-arrow {
+      position: absolute; top: 44%; transform: translateY(-50%);
+      width: 46px; height: 46px; border-radius: 50%;
+      display: none; align-items: center; justify-content: center;
+      background: var(--surface-2); border: 1px solid var(--border); color: var(--accent);
+      font-family: var(--ff-display); font-size: 24px; line-height: 1; padding-bottom: 3px;
+      cursor: pointer; z-index: 3; box-shadow: 0 10px 30px rgba(0,0,0,.45);
+      transition: background .2s, color .2s, transform .2s, opacity .2s;
+    }
+    .rail-arrow:hover { background: var(--accent); color: #0B0B09; transform: translateY(-50%) scale(1.06); }
+    .rail-prev { left: -6px; }
+    .rail-next { right: -6px; }
+    .rail-arrow:disabled { opacity: 0; pointer-events: none; }
+    @media(min-width: 920px){ .rail-arrow { display: flex; } }
+    .rail-progress { height: 3px; background: var(--surface-2); border-radius: 100px; margin-top: 16px; overflow: hidden; }
+    .rail-progress-bar { display: block; height: 100%; width: 30%; background: linear-gradient(90deg, var(--accent), var(--accent-hot)); border-radius: 100px; }
     .case-card {
       background: var(--surface);
       border: 1px solid rgba(212,175,55,.3);
@@ -1063,11 +1092,12 @@
         <p class="inst-bio">Luiz Bessa usa Claude Code todos os dias em projeto pago por cliente. Estuda Ciência da Computação na UnB: aprende a teoria de manhã e aplica em projeto real à tarde. No curso, ensina o mesmo caminho que usa no próprio trabalho: em português, começando do zero. E o curso cresce junto com o trabalho: todo projeto que ele entrega pra cliente vira estudo de caso lá dentro.</p>
       </div>
     </div>
-    <div class="prova-grid">
+    <div class="prova-rail">
+      <div class="prova-track" id="provaTrack">
       <!-- Cases reais em vídeo (YouTube). Player carrega ao clicar (facade). Para adicionar
            outro: copie um bloco .case-card, troque data-yt (id do vídeo), aria-label, o src
-           do thumbnail e o texto do .case-cap. O JS e a grade absorvem novos cards sozinhos. -->
-      <div class="case-card rev d1">
+           do thumbnail e o texto do .case-cap. O JS e o carrossel absorvem novos cards sozinhos. -->
+      <div class="case-card">
         <div class="term-bar">
           <div class="term-dot"></div>
           <div class="term-dot"></div>
@@ -1081,7 +1111,7 @@
         </div>
         <div class="case-cap"><strong>Escritório de advocacia</strong></div>
       </div>
-      <div class="case-card rev d2">
+      <div class="case-card">
         <div class="term-bar">
           <div class="term-dot"></div>
           <div class="term-dot"></div>
@@ -1095,7 +1125,7 @@
         </div>
         <div class="case-cap"><strong>Clínica</strong></div>
       </div>
-      <div class="case-card rev d3">
+      <div class="case-card">
         <div class="term-bar">
           <div class="term-dot"></div>
           <div class="term-dot"></div>
@@ -1109,7 +1139,7 @@
         </div>
         <div class="case-cap"><strong>Imobiliária</strong></div>
       </div>
-      <div class="case-card rev d1">
+      <div class="case-card">
         <div class="term-bar">
           <div class="term-dot"></div>
           <div class="term-dot"></div>
@@ -1123,7 +1153,7 @@
         </div>
         <div class="case-cap"><strong>Delivery</strong></div>
       </div>
-      <div class="case-card rev d2">
+      <div class="case-card">
         <div class="term-bar">
           <div class="term-dot"></div>
           <div class="term-dot"></div>
@@ -1137,6 +1167,10 @@
         </div>
         <div class="case-cap"><strong>Petshop</strong></div>
       </div>
+      </div>
+      <button class="rail-arrow rail-prev" id="railPrev" type="button" aria-label="Casos anteriores">&lsaquo;</button>
+      <button class="rail-arrow rail-next" id="railNext" type="button" aria-label="Mais casos">&rsaquo;</button>
+      <div class="rail-progress" aria-hidden="true"><span class="rail-progress-bar" id="railBar"></span></div>
     </div>
     <div class="prova-fecho rev">
       <span class="prova-fecho-ico">👑</span>
@@ -1354,6 +1388,39 @@
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playCase(el); }
     });
   });
+
+  /* ── Carrossel de cases: setas, barra de progresso e fades de borda ── */
+  const caseTrack = document.getElementById('provaTrack');
+  if (caseTrack) {
+    const rail = caseTrack.closest('.prova-rail');
+    const bar = document.getElementById('railBar');
+    const prevBtn = document.getElementById('railPrev');
+    const nextBtn = document.getElementById('railNext');
+    const step = () => {
+      const card = caseTrack.querySelector('.case-card');
+      return card ? card.offsetWidth + 20 : caseTrack.clientWidth * 0.8;
+    };
+    const updateRail = () => {
+      const max = caseTrack.scrollWidth - caseTrack.clientWidth;
+      const ratio = max > 4 ? caseTrack.scrollLeft / max : 0;
+      const wPct = Math.min(100, Math.max(16, (caseTrack.clientWidth / caseTrack.scrollWidth) * 100));
+      bar.style.width = wPct + '%';
+      bar.style.marginLeft = (ratio * (100 - wPct)) + '%';
+      rail.classList.toggle('can-left', caseTrack.scrollLeft > 4);
+      rail.classList.toggle('can-right', caseTrack.scrollLeft < max - 4);
+      if (prevBtn) prevBtn.disabled = caseTrack.scrollLeft <= 4;
+      if (nextBtn) nextBtn.disabled = caseTrack.scrollLeft >= max - 4;
+    };
+    if (prevBtn) prevBtn.addEventListener('click', () => caseTrack.scrollBy({ left: -step(), behavior: 'smooth' }));
+    if (nextBtn) nextBtn.addEventListener('click', () => caseTrack.scrollBy({ left: step(), behavior: 'smooth' }));
+    let rafRail = null;
+    caseTrack.addEventListener('scroll', () => {
+      if (rafRail) return;
+      rafRail = requestAnimationFrame(() => { updateRail(); rafRail = null; });
+    }, { passive: true });
+    window.addEventListener('resize', updateRail);
+    updateRail();
+  }
 
   /* ── FAQ ─────────────────────────────── */
   document.querySelectorAll('.faq-q').forEach(q => {
