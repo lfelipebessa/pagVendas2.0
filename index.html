@@ -516,11 +516,11 @@
     /* ── PROVA (CASES) ─────────────── */
     .prova-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 24px;
       margin-top: 28px;
     }
-    @media(max-width:760px){ .prova-grid { grid-template-columns:1fr; } }
+    @media(max-width:660px){ .prova-grid { grid-template-columns:1fr; } }
     .case-card {
       background: var(--surface);
       border: 1px solid rgba(212,175,55,.3);
@@ -547,6 +547,13 @@
     .demo-play-sm { width: 54px; height: 54px; }
     .demo-play-sm::after { border-left-width: 14px; border-top-width: 9px; border-bottom-width: 9px; margin-left: 4px; }
     .case-cap { padding: 18px 22px; font-size: 15px; color: var(--muted); line-height: 1.6; }
+    .case-video { position: relative; cursor: pointer; padding: 0; border: none; overflow: hidden; }
+    .case-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .case-veil { position: absolute; inset: 0; background: rgba(11,11,9,.42); transition: background .2s; }
+    .case-video:hover .case-veil { background: rgba(11,11,9,.20); }
+    .case-video .demo-play { position: relative; z-index: 1; transition: transform .2s, box-shadow .2s; }
+    .case-video:hover .demo-play { transform: scale(1.08); box-shadow: 0 0 52px rgba(212,175,55,.32); }
+    .case-iframe { width: 100%; aspect-ratio: 16/9; border: 0; display: block; border-bottom: 1px solid var(--border); }
     .case-cap strong { color: var(--text); font-weight: 600; }
     .prova-fecho {
       margin-top: 28px;
@@ -1057,11 +1064,9 @@
       </div>
     </div>
     <div class="prova-grid">
-      <!-- [CASE-VIDEO-1] — substituir o slot abaixo pelo vídeo real (16:9).
-           Spec (note 01-blueprint, seção 5): vídeo de 1min30s a 2min navegando
-           por cima do projeto real: robô de atendimento no WhatsApp entregue a
-           cliente. Narração cobre: (1) o que o cliente fazia na mão antes;
-           (2) o que roda sozinho hoje. -->
+      <!-- Cases reais em vídeo (YouTube). Player carrega ao clicar (facade). Para adicionar
+           outro: copie um bloco .case-card, troque data-yt (id do vídeo), aria-label, o src
+           do thumbnail e o texto do .case-cap. O JS e a grade absorvem novos cards sozinhos. -->
       <div class="case-card rev d1">
         <div class="term-bar">
           <div class="term-dot"></div>
@@ -1069,16 +1074,13 @@
           <div class="term-dot"></div>
           <span class="term-label">projeto real</span>
         </div>
-        <div class="case-shot">
-          <div class="demo-play demo-play-sm"></div>
-          <span class="demo-soon">Vídeo em breve</span>
+        <div class="case-shot case-video" role="button" tabindex="0" data-yt="Uor0_yxay6I" aria-label="Assistir: projeto para escritório de advocacia">
+          <img class="case-thumb" src="https://img.youtube.com/vi/Uor0_yxay6I/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+          <span class="case-veil"></span>
+          <span class="demo-play demo-play-sm"></span>
         </div>
-        <div class="case-cap"><strong>Robô de atendimento no WhatsApp</strong> entregue a cliente</div>
+        <div class="case-cap"><strong>Escritório de advocacia</strong></div>
       </div>
-      <!-- [CASE-VIDEO-2] — substituir o slot abaixo pelo vídeo real (16:9).
-           Spec (note 01-blueprint, seção 5): vídeo de 1min30s a 2min navegando
-           por cima do projeto real: plataforma editorial com IA. Narração cobre:
-           (1) o que foi pedido; (2) o que foi entregue. -->
       <div class="case-card rev d2">
         <div class="term-bar">
           <div class="term-dot"></div>
@@ -1086,11 +1088,54 @@
           <div class="term-dot"></div>
           <span class="term-label">projeto real</span>
         </div>
-        <div class="case-shot">
-          <div class="demo-play demo-play-sm"></div>
-          <span class="demo-soon">Vídeo em breve</span>
+        <div class="case-shot case-video" role="button" tabindex="0" data-yt="dmjKH3HkCWw" aria-label="Assistir: projeto para clínica">
+          <img class="case-thumb" src="https://img.youtube.com/vi/dmjKH3HkCWw/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+          <span class="case-veil"></span>
+          <span class="demo-play demo-play-sm"></span>
         </div>
-        <div class="case-cap"><strong>Plataforma editorial com IA</strong></div>
+        <div class="case-cap"><strong>Clínica</strong></div>
+      </div>
+      <div class="case-card rev d3">
+        <div class="term-bar">
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <span class="term-label">projeto real</span>
+        </div>
+        <div class="case-shot case-video" role="button" tabindex="0" data-yt="iDW_-CYyhf0" aria-label="Assistir: projeto para imobiliária">
+          <img class="case-thumb" src="https://img.youtube.com/vi/iDW_-CYyhf0/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+          <span class="case-veil"></span>
+          <span class="demo-play demo-play-sm"></span>
+        </div>
+        <div class="case-cap"><strong>Imobiliária</strong></div>
+      </div>
+      <div class="case-card rev d1">
+        <div class="term-bar">
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <span class="term-label">projeto real</span>
+        </div>
+        <div class="case-shot case-video" role="button" tabindex="0" data-yt="96FmUF9l77Q" aria-label="Assistir: projeto para delivery">
+          <img class="case-thumb" src="https://img.youtube.com/vi/96FmUF9l77Q/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+          <span class="case-veil"></span>
+          <span class="demo-play demo-play-sm"></span>
+        </div>
+        <div class="case-cap"><strong>Delivery</strong></div>
+      </div>
+      <div class="case-card rev d2">
+        <div class="term-bar">
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <span class="term-label">projeto real</span>
+        </div>
+        <div class="case-shot case-video" role="button" tabindex="0" data-yt="Fk6KrgIn4_I" aria-label="Assistir: projeto para petshop">
+          <img class="case-thumb" src="https://img.youtube.com/vi/Fk6KrgIn4_I/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+          <span class="case-veil"></span>
+          <span class="demo-play demo-play-sm"></span>
+        </div>
+        <div class="case-cap"><strong>Petshop</strong></div>
       </div>
     </div>
     <div class="prova-fecho rev">
@@ -1290,6 +1335,25 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
   revEls.forEach(el => obs.observe(el));
+
+  /* ── Cases em vídeo: carrega o player do YouTube ao clicar (facade) ── */
+  const playCase = el => {
+    const id = el.getAttribute('data-yt');
+    if (!id) return;
+    const iframe = document.createElement('iframe');
+    iframe.className = 'case-iframe';
+    iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+    iframe.title = el.getAttribute('aria-label') || 'Vídeo do projeto';
+    iframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; fullscreen');
+    iframe.setAttribute('allowfullscreen', '');
+    el.replaceWith(iframe);
+  };
+  document.querySelectorAll('.case-video').forEach(el => {
+    el.addEventListener('click', () => playCase(el));
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playCase(el); }
+    });
+  });
 
   /* ── FAQ ─────────────────────────────── */
   document.querySelectorAll('.faq-q').forEach(q => {
