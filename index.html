@@ -477,6 +477,22 @@
     }
     .mod-done strong { color:var(--accent); font-weight:600; display:block; margin-bottom:2px; }
     .mod-list { margin-bottom:18px; }
+    .build-first { margin-top:40px; }
+    .build-first-label {
+      font-family:var(--ff-mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+      color:var(--accent); margin-bottom:18px;
+    }
+    .build-first-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    @media(max-width:760px){ .build-first-grid { grid-template-columns:1fr; } }
+    .build-first-card {
+      display:flex; gap:13px; align-items:flex-start;
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:var(--r); padding:18px 20px;
+    }
+    .build-first-emoji { font-size:22px; line-height:1.3; flex-shrink:0; }
+    .build-first-card p { font-size:14.5px; color:var(--muted); line-height:1.55; margin:0; }
+    .build-first-card strong { color:var(--text); font-weight:600; }
+    .build-first-foot { margin-top:18px; font-size:14px; color:var(--dim); line-height:1.55; }
 
     /* ── QUEM ENSINA + PROVA ───────── */
     .inst-grid { margin-top: 52px; }
@@ -827,7 +843,7 @@
           <span class="trust-pill"><span class="ok">✓</span> 7 dias de garantia</span>
           <span class="trust-pill"><span class="ok">✓</span> Sem saber programar</span>
           <span class="trust-pill"><span class="ok">✓</span> Comunidade no WhatsApp</span>
-          <span class="trust-pill"><span class="ok">✓</span> Um ano de acesso</span>
+          <span class="trust-pill"><span class="ok">✓</span> Sem custo escondido</span>
         </div>
       </div>
 
@@ -999,11 +1015,29 @@
         <div class="mod-num">04</div>
         <h3 class="mod-title">🎁 <em>Bônus</em></h3>
         <ul class="mod-list">
-          <li>Como pagar menos nas assinaturas de IA</li>
-          <li>Player de vídeo próprio + prompt de acabamento pra deixar suas páginas profissionais</li>
+          <li>Assinatura Enxuta: o guia pra pagar menos pelas IAs que você usa</li>
+          <li>Seu Player, Suas Regras e Acabamento Pro: vídeo hospedado por você e página com cara de agência</li>
         </ul>
         <p class="mod-done"><strong>Você termina com:</strong> seu player de vídeo próprio no ar</p>
       </div>
+    </div>
+    <div class="build-first rev d2">
+      <p class="build-first-label">O que você constrói primeiro</p>
+      <div class="build-first-grid">
+        <div class="build-first-card">
+          <span class="build-first-emoji">🩺</span>
+          <p><strong>Clínica ou consultório:</strong> agendamento com confirmação automática no WhatsApp</p>
+        </div>
+        <div class="build-first-card">
+          <span class="build-first-emoji">🔧</span>
+          <p><strong>Prestador de serviço:</strong> orçamento que sai na hora, direto no WhatsApp do cliente</p>
+        </div>
+        <div class="build-first-card">
+          <span class="build-first-emoji">🛍️</span>
+          <p><strong>Loja:</strong> atendimento que responde o cliente e mostra o catálogo sozinho</p>
+        </div>
+      </div>
+      <p class="build-first-foot">Seu negócio não está aí? O caminho é o mesmo: muda o que você pede pro Claude.</p>
     </div>
   </div>
 </section>
@@ -1017,7 +1051,7 @@
       <div class="inst-card rev d1">
         <img class="inst-av inst-av-luiz" src="assets/luiz.jpeg" alt="Luiz Bessa" loading="lazy" decoding="async">
         <h3 class="inst-name">Luiz Bessa</h3>
-        <p class="inst-bio">Luiz Bessa usa Claude Code todos os dias em projeto pago por cliente. Estuda Ciência da Computação na UnB: aprende a teoria de manhã e aplica em projeto real à tarde. No curso, ensina o mesmo caminho que usa no próprio trabalho: em português, começando do zero.</p>
+        <p class="inst-bio">Luiz Bessa usa Claude Code todos os dias em projeto pago por cliente. Estuda Ciência da Computação na UnB: aprende a teoria de manhã e aplica em projeto real à tarde. No curso, ensina o mesmo caminho que usa no próprio trabalho: em português, começando do zero. E o curso cresce junto com o trabalho: todo projeto que ele entrega pra cliente vira estudo de caso lá dentro.</p>
       </div>
     </div>
     <div class="prova-grid">
@@ -1086,11 +1120,11 @@
           <div class="price-feat"><span class="ok">✓</span> <span><strong>Curso completo:</strong> 4 módulos, do zero ao sistema no ar</span></div>
           <div class="price-feat"><span class="ok">✓</span> <span><strong>Comunidade no WhatsApp:</strong> o grupo que dá nome ao curso, você constrói acompanhado</span></div>
           <div class="price-feat"><span class="ok">✓</span> <span><strong>Atenção pessoal do Luiz:</strong> quem responde é ele, não robô de suporte</span></div>
-          <div class="price-feat"><span class="ok">✓</span> <span><strong>Um ano de acesso:</strong> com todas as atualizações do período</span></div>
+          <div class="price-feat"><span class="ok">✓</span> <span><strong>Um ano de curso vivo:</strong> os novos projetos reais viram aula, mais todas as atualizações do período</span></div>
           <!-- SEM preço riscado nos bônus até o usuário fornecer valores reais (note 01-blueprint, seção 6): âncora inventada não entra. -->
-          <div class="price-feat"><span class="gift">🎁</span> <span><strong>Bônus 1:</strong> como pagar menos nas assinaturas de IA</span></div>
-          <div class="price-feat"><span class="gift">🎁</span> <span><strong>Bônus 2:</strong> player de vídeo próprio</span></div>
-          <div class="price-feat"><span class="gift">🎁</span> <span><strong>Bônus 3:</strong> prompt de acabamento pra páginas de venda</span></div>
+          <div class="price-feat"><span class="gift">🎁</span> <span><strong>Assinatura Enxuta:</strong> o guia pra pagar menos pelas IAs que você usa</span></div>
+          <div class="price-feat"><span class="gift">🎁</span> <span><strong>Seu Player, Suas Regras:</strong> vídeo hospedado por você, sem mensalidade de plataforma</span></div>
+          <div class="price-feat"><span class="gift">🎁</span> <span><strong>Acabamento Pro:</strong> o prompt que deixa qualquer página sua com cara de agência</span></div>
         </div>
         <div class="price-cta">
           <a href="https://pay.kiwify.com.br/pvRX1Ts" class="btn-full" target="_blank" rel="noopener noreferrer">QUERO CONSTRUIR MEU PRIMEIRO SISTEMA →</a>
@@ -1101,8 +1135,8 @@
         <p>Pra praticar, você vai precisar da assinatura do Claude, paga à Anthropic (cerca de US$20 por mês no plano de entrada), separada do curso. Um dos bônus ensina a gastar menos com isso. Mesmo somando curso e assinatura, o ano completo sai por menos que um único orçamento de agência.</p>
       </div>
       <div class="guarantee rev d1">
-        <p class="guarantee-title">🛡️ 7 dias pra testar tudo por dentro.</p>
-        <p>Não gostou, pede reembolso e devolvemos 100%, sem perguntas.</p>
+        <p class="guarantee-title">🛡️ 7 dias, na minha palavra.</p>
+        <p>Entra, faz o módulo 1, testa por 7 dias. Não era pra você? Me manda uma mensagem e eu devolvo tudo.</p>
       </div>
       <div class="why-now rev d2">
         <p class="why-now-label">Por que agora</p>
@@ -1138,14 +1172,22 @@
         <div class="faq-a"><p class="faq-a-in">R$87 valem por um ano de curso, comunidade e atualizações. Perto de vencer, você decide se renova. Os primeiros 7 dias são de teste: não gostou, pede reembolso e devolvemos 100%.</p></div>
       </div>
       <div class="faq-item rev d3">
+        <div class="faq-q"><span>O curso vai desatualizar?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p class="faq-a-in">Não, porque ele é vivo: todo projeto que o Luiz entrega pra cliente vira estudo de caso dentro do curso, e o seu ano de acesso inclui todas as atualizações do período.</p></div>
+      </div>
+      <div class="faq-item rev d1">
         <div class="faq-q"><span>Funciona no Mac e no Windows?</span><span class="faq-plus">+</span></div>
         <div class="faq-a"><p class="faq-a-in">Sim. O curso cobre a instalação e a configuração nos dois.</p></div>
       </div>
-      <div class="faq-item rev d1">
+      <div class="faq-item rev d2">
         <div class="faq-q"><span>Tem aula ao vivo?</span><span class="faq-plus">+</span></div>
         <div class="faq-a"><p class="faq-a-in">Não: aulas gravadas, no seu ritmo. As dúvidas acontecem na comunidade do WhatsApp, sem horário marcado.</p></div>
       </div>
-      <div class="faq-item rev d2">
+      <div class="faq-item rev d3">
+        <div class="faq-q"><span>Por que não aprender de graça no YouTube?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p class="faq-a-in">Dá, e tem material bom. Mas está em inglês, é feito pra programador e vem picado, cada vídeo de um jeito. Aqui é o caminho inteiro na ordem certa, em português, pra quem não é técnico, com uma comunidade pra você não travar no meio.</p></div>
+      </div>
+      <div class="faq-item rev d1">
         <div class="faq-q"><span>Serve pro MEU negócio?</span><span class="faq-plus">+</span></div>
         <div class="faq-a"><p class="faq-a-in">Os projetos do curso são o que negócio usa de verdade: atendimento, orçamento, site, automação. Você constrói a sua versão já durante as aulas.</p></div>
       </div>
@@ -1156,7 +1198,8 @@
     </div>
     <div class="closing rev">
       <p>Você já sabe o que te toma horas toda semana.</p>
-      <p>Aqui está o caminho pra transformar isso em sistema: em português, do zero, com 7 dias de garantia.</p>
+      <p>Daqui a 6 meses, uma das duas coisas vai ser verdade: ou o atendimento roda sozinho enquanto você cuida do negócio, ou você ainda vai estar respondendo cliente um por um, igual hoje.</p>
+      <p>A diferença entre esses dois futuros cabe em uma decisão: em português, do zero, com 7 dias de garantia.</p>
       <p>Entra, faz o módulo 1 e termina o dia com o Claude rodando na sua máquina.</p>
       <a href="https://pay.kiwify.com.br/pvRX1Ts" class="btn-primary closing-cta" target="_blank" rel="noopener noreferrer">QUERO CONSTRUIR MEU PRIMEIRO SISTEMA →</a>
     </div>
