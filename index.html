@@ -579,10 +579,11 @@
     }
     .headline-card:hover { border-color: rgba(212,175,55,.45); transform: translateY(-3px); }
     .headline-shot {
-      aspect-ratio: 21/9;
+      aspect-ratio: 16/10;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
       border-bottom: 1px solid var(--border);
       background:
         radial-gradient(ellipse at 50% 45%, rgba(212,175,55,.10), transparent 65%),
@@ -590,6 +591,7 @@
         linear-gradient(90deg, rgba(212,175,55,.035) 1px, transparent 1px);
       background-size: auto, 32px 32px, 32px 32px;
     }
+    .headline-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
     .headline-cap { padding: 16px 20px; font-size: 14.5px; color: var(--muted); line-height: 1.65; margin: 0; }
 
     /* ── OFERTA ────────────────────── */
@@ -940,7 +942,7 @@
           <div class="term-dot"></div>
           <div class="term-dot"></div>
         </div>
-        <div class="headline-shot"><span class="demo-soon">Print em breve</span></div>
+        <div class="headline-shot"><img src="assets/manchete-4-infomoney.png" alt="InfoMoney: Meta amplia IA para empresas com agentes integrados ao WhatsApp (04/06/2026)" loading="lazy" decoding="async"></div>
         <p class="headline-cap">Atendimento por agente no WhatsApp virou o padrão: as gigantes correram pra isso. Aqui você constrói o seu, do seu jeito.</p>
       </div>
     </div>
