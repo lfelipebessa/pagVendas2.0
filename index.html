@@ -545,6 +545,37 @@
     .prova-fecho-ico { font-size: 26px; flex-shrink: 0; }
     .prova-fecho p { font-size: 16px; color: var(--text); font-weight: 600; line-height: 1.6; margin: 0; }
 
+    /* ── MERCADO (MANCHETES) ───────── */
+    .mercado-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 52px;
+    }
+    @media(max-width:760px){ .mercado-grid { grid-template-columns:1fr; } }
+    .headline-card {
+      background: var(--surface);
+      border: 1px solid rgba(212,175,55,.3);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 16px 44px rgba(0,0,0,.4), 0 0 50px rgba(212,175,55,.05);
+      transition: border-color .2s, transform .22s;
+    }
+    .headline-card:hover { border-color: rgba(212,175,55,.45); transform: translateY(-3px); }
+    .headline-shot {
+      aspect-ratio: 21/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse at 50% 45%, rgba(212,175,55,.10), transparent 65%),
+        linear-gradient(rgba(212,175,55,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,55,.035) 1px, transparent 1px);
+      background-size: auto, 32px 32px, 32px 32px;
+    }
+    .headline-cap { padding: 16px 20px; font-size: 14.5px; color: var(--muted); line-height: 1.65; margin: 0; }
+
     /* ── OFERTA ────────────────────── */
     .oferta { background: var(--surface); }
     .pricing-wrap { max-width:540px; margin:52px auto 0; }
@@ -849,7 +880,58 @@
   </div>
 </section>
 
-<!-- SEÇÃO 3 · SOLUÇÃO DEMONSTRADA -->
+<!-- SEÇÃO 3 · O QUE O MERCADO ESTÁ DIZENDO -->
+<section class="mercado">
+  <div class="container">
+    <div class="s-tag">O mercado</div>
+    <h2 class="s-title rev">Não sou <em style="color:var(--accent)">eu</em> que estou dizendo.</h2>
+    <p class="prob-sub rev d1">Quatro manchetes de quem não ganha nada com a sua decisão:</p>
+    <div class="mercado-grid">
+      <!-- [PRINT-MANCHETE-1: Agência Sebrae de Notícias · 25/06/2025 · https://agenciasebrae.com.br/inovacao-e-tecnologia/de-gps-a-chat-gpt-maioria-dos-pequenos-negocios-abraca-a-inteligencia-artificial-para-aumentar-resultados/] -->
+      <div class="headline-card rev d1">
+        <div class="term-bar">
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+        </div>
+        <div class="headline-shot"><span class="demo-soon">Print em breve</span></div>
+        <p class="headline-cap">O Sebrae mediu: metade dos pequenos negócios já usa IA generativa no dia a dia. Seus concorrentes estão nessa conta.</p>
+      </div>
+      <!-- [PRINT-MANCHETE-2: Exame · 20/01/2026 · https://exame.com/inteligencia-artificial/claude-ganha-espaco-usuarios-comuns-pressao-mercado-ia/] -->
+      <div class="headline-card rev d2">
+        <div class="term-bar">
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+        </div>
+        <div class="headline-shot"><span class="demo-soon">Print em breve</span></div>
+        <p class="headline-cap">O Claude deixou de ser coisa de programador. É por essa porta que este curso te leva.</p>
+      </div>
+      <!-- [PRINT-MANCHETE-3: Exame · 30/04/2026 · https://exame.com/inteligencia-artificial/receita-da-anthropic-salta-de-us-9-bilhoes-para-us-40-bilhoes-em-poucos-meses/] -->
+      <div class="headline-card rev d3">
+        <div class="term-bar">
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+        </div>
+        <div class="headline-shot"><span class="demo-soon">Print em breve</span></div>
+        <p class="headline-cap">De US$ 9 bilhões pra US$ 40 bilhões, com o salto creditado ao Claude Code. Tempo investido no cavalo certo.</p>
+      </div>
+      <!-- [PRINT-MANCHETE-4: InfoMoney · 04/06/2026 · https://www.infomoney.com.br/business/startups-meta-amplia-ia-para-empresas-com-agentes-integrados-ao-whatsapp/] -->
+      <div class="headline-card rev d4">
+        <div class="term-bar">
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+        </div>
+        <div class="headline-shot"><span class="demo-soon">Print em breve</span></div>
+        <p class="headline-cap">Atendimento por agente no WhatsApp virou o padrão: as gigantes correram pra isso. Aqui você constrói o seu, do seu jeito.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 4 · SOLUÇÃO DEMONSTRADA -->
 <section class="solution">
   <div class="container">
     <div class="s-tag" style="justify-content:center">A solução</div>
@@ -880,7 +962,7 @@
   </div>
 </section>
 
-<!-- SEÇÃO 4 · O CAMINHO -->
+<!-- SEÇÃO 5 · O CAMINHO -->
 <section class="modules">
   <div class="container">
     <div class="s-tag">O caminho</div>
@@ -926,7 +1008,7 @@
   </div>
 </section>
 
-<!-- SEÇÃO 5 · QUEM ENSINA + PROVA -->
+<!-- SEÇÃO 6 · QUEM ENSINA + PROVA -->
 <section class="instructors">
   <div class="container">
     <div class="s-tag">Quem ensina</div>
@@ -986,7 +1068,7 @@
      com nome, foto e identificação verificável (note 01-blueprint, seção 5).
      Até lá, a seção de prova fecha nos cases acima. -->
 
-<!-- SEÇÃO 6 · OFERTA COMPLETA -->
+<!-- SEÇÃO 7 · OFERTA COMPLETA -->
 <section id="pricing" class="oferta">
   <div class="container">
     <div class="s-tag" style="justify-content:center">A oferta</div>
@@ -1037,7 +1119,7 @@
   </div>
 </section>
 
-<!-- SEÇÃO 7 · FAQ + FECHAMENTO -->
+<!-- SEÇÃO 8 · FAQ + FECHAMENTO -->
 <section class="faq">
   <div class="container">
     <div class="s-tag" style="justify-content:center">Dúvidas</div>
